@@ -30,4 +30,12 @@ public class CalculatorTest {
         assertThrows(IllegalArgumentException.class, () -> calculator.divide(18, 0), " Geht einfach nicht");
 
     }
+    @Test
+    public void testMessage() {
+        IllegalArgumentException exception =
+        assertThrowsExactly(IllegalArgumentException.class, () -> {
+            throw new IllegalArgumentException("Cannot divide by zero.");
+        });
+        assertEquals("Cannot divide by zero.", exception.getMessage());
+    }
 }
