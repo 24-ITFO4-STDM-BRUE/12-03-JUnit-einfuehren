@@ -19,4 +19,26 @@ public class CalculatorTest {
     public void testMultiply() {
         assertEquals(6, calculator.multiply(2, 3), "2 * 3 sollte 6 ergeben");
     }
+
+    @Test
+    public void divideArgumentExep() {
+        try{
+            calculator.divide(1,0);
+        }
+        catch (IllegalArgumentException ex) {
+            assertTrue(true);
+            return;
+        }
+        fail();
+    }
+
+    @Test
+    public void divideCorrectValues() {
+        assertEquals(2.0, calculator.divide(4,2));
+        assertEquals(0.5, calculator.divide(5,10));
+        assertEquals(5.0, calculator.divide(10,2));
+        assertNotEquals(10.0, calculator.divide(10,2));
+        assertTrue(calculator.divide(10, 3) > 3.3);
+
+    }
 }
