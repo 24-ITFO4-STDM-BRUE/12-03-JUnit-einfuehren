@@ -21,5 +21,19 @@ public class CalculatorTest {
     }
     @Test
     public void testDivide() { assertEquals( 3, calculator.divide(9,3), "9 / 3 sollte 3 ergeben");}
+
+    @Test
+    public void testDivideByZero() {
+        assertThrows(IllegalArgumentException.class,
+                ()-> {
+                    calculator.divide(9,0);
+                });
+    }
+
+    @Test
+    public void testGroeßerDurchKleiner() {
+        assertEquals(0.5, calculator.divide(5,10),"5 / 10 sollte 0.5 ergeben");
+    }
+
 }
 
