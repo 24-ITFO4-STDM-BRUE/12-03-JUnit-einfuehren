@@ -22,6 +22,10 @@ public class CalculatorTest {
         assertEquals(6, calculator.multiply(2, 3), "2 * 3 sollte 6 ergeben");
     }
     @Test
-    public void testdivide() {assertEquals(10, calculator.divide(20, 2), "20 : 2 sollte 10 ergeben");
+    public void testdivide1() {assertEquals(10, calculator.divide(20, 2), "20 : 2 sollte 10 ergeben");
+    }
+    @Test
+    public void testdivide2() {assertEquals(5, calculator.divide(20, 4), "20 : 4 sollte 5 ergeben");
+
     }
 }
