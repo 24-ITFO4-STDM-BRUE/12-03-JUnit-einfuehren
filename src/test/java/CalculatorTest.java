@@ -22,4 +22,7 @@ public class CalculatorTest {
 
     @Test
     public void testDivide(){assertEquals(2,calculator.divide(6,3), "6 / 3 sollte 2 ergeben"); }
+
+    @Test
+    public void testDivideZero() {assertThrows(IllegalArgumentException.class, () -> calculator.divide(4, 0), "Solle Exception werfen."); }
 }
