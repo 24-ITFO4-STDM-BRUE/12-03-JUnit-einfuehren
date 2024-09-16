@@ -26,7 +26,20 @@ public class CalculatorTest {
     }
 
     @Test
+    public void testDivideBulkRand() {
+        int a,b;
+        double result;
+        for (int i = 0; i < 100; i++) {
+            a = (int)(1000 * (Math.random()));
+            b = (int)(1000 * (Math.random() + 0.001));
+            result = (double) a / b;
+            assertEquals(result, calculator.divide(a, b));
+        }
+    }
+
+    @Test
     public void testDivideZero() {
-        assertThrows(IllegalArgumentException.class, () -> calculator.divide(1,0));
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> calculator.divide(1,0));
+        assertEquals("Cannot divide by zero.", ex.getMessage());
     }
 }
