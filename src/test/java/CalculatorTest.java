@@ -26,6 +26,15 @@ public class CalculatorTest {
     }
     @Test
     public void testdivide2() {assertEquals(5, calculator.divide(20, 4), "20 : 4 sollte 5 ergeben");
+    }
+    @Test
+    public void testdivide3() {
+    }Exception exception = assertThrows(IllegalArgumentException.class, () ->
+            calculator.divide(1, 0));
+
+    {assertEquals("Cannot divide by zero.",exception.getMessage());
+
+
 
     }
 }
