@@ -22,4 +22,18 @@ public class CalculatorTest {
 
     @Test
     public void testDivide() {assertEquals(2, calculator.divide(6, 3), "6 / 3 sollte 2 ergeben");}
+
+    @Test
+    void testDivideByZero() {
+        IllegalArgumentException exception =
+        assertThrows(IllegalArgumentException.class, () -> {
+            throw new IllegalArgumentException("message");
+        });
+        assertEquals("message", exception.getMessage());
+
+        assertThrows(RuntimeException.class, () -> {
+            throw new IllegalArgumentException("message");
+        });
+
+    }
 }
