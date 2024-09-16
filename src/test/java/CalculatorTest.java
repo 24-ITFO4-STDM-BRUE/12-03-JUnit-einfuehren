@@ -19,4 +19,7 @@ public class CalculatorTest {
     public void testMultiply() {
         assertEquals(6, calculator.multiply(2, 3), "2 * 3 sollte 6 ergeben");
     }
+    @Test
+    public void testdivide() {assertEquals(10, calculator.divide(20, 2), "20 : 2 sollte 10 ergeben");
+    }
 }
