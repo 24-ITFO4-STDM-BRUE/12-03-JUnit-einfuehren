@@ -16,8 +16,15 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testMultiply() { assertEquals(6, calculator.multiply(2, 3), "2 * 3 sollte 6 ergeben"); }
+    public void testMultiply() {
+        assertEquals(6, calculator.multiply(2, 3), "2 * 3 sollte 6 ergeben");
+    }
 
     @Test
-    public void testDivide() { assertEquals(8, calculator.divide(24, 3), "24 / 3 sollte 8 ergeben"); }
+    public void testDivide() {
+        assertEquals(8, calculator.divide(24, 3), "24 / 3 sollte 8 ergeben");
+    }
+
+    @Test
+    void testExpectedExceptionIsThrown() {assertThrows(IllegalArgumentException.class, () -> {calculator.divide(12, 0);});}
 }
