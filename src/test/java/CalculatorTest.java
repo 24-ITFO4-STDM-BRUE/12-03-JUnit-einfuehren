@@ -21,5 +21,13 @@ public class CalculatorTest {
     }
 
     @Test
-     public void testDivide() {assertEquals(2, calculator.divide(4, 2));}
+     public void testDivide() {
+        assertEquals(2, calculator.divide(4, 2));
+    }
+
+    @Test
+    public void testDivideByZero() {
+        assertThrows(IllegalArgumentException.class, () -> { calculator.divide(10, 0);
+        });
+    }
 }
