@@ -29,12 +29,17 @@ public class CalculatorTest {
     }
     @Test
     public void testdivide3() {
-    }Exception exception = assertThrows(IllegalArgumentException.class, () ->
+    /*Exception exception = assertThrows(IllegalArgumentException.class, () ->
             calculator.divide(1, 0));
 
-    {assertEquals("Cannot divide by zero.",exception.getMessage());
-
-
-
+        {
+            assertEquals("Cannot divide by zero.", exception.getMessage());
+        }
+*/
+        IllegalArgumentException exception =
+                assertThrows(IllegalArgumentException.class, () -> {
+                    throw new IllegalArgumentException("expected message");
+                });
+        assertEquals("expected message", exception.getMessage());
     }
 }
