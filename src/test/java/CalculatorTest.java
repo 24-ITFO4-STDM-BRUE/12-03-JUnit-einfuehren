@@ -1,6 +1,6 @@
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
 public class CalculatorTest {
 
     private final Calculator calculator = new Calculator();
@@ -22,10 +22,10 @@ public class CalculatorTest {
 
     @Test
     public void divideArgumentExep() {
-        try{
-            calculator.divide(1,0);
-        }
-        catch (IllegalArgumentException ex) {
+
+        try {
+            calculator.divide(1, 0);
+        } catch (IllegalArgumentException ex) {
             assertTrue(true);
             return;
         }
@@ -33,7 +33,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void divideCorrectValues() {
+    public void divideValues() {
         assertEquals(2.0, calculator.divide(4,2));
         assertEquals(0.5, calculator.divide(5,10));
         assertEquals(5.0, calculator.divide(10,2));
