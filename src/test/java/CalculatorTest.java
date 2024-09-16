@@ -27,7 +27,7 @@ public class CalculatorTest {
 
     @Test
     public void testZero() {
-        assertThrows(IllegalArgumentException.class, () -> calculator.divide(18, 0), " Geht einfach nicht");
+        assertThrows(IllegalArgumentException.class, () -> calculator.divide(18, 0), "Geht einfach nicht, wieso?");
 
     }
     @Test
