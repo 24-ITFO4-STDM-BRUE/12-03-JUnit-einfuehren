@@ -24,4 +24,10 @@ public class CalculatorTest {
     public  void testDivide() {
         assertEquals(6, calculator.divide(18, 3), "18 / 3 sollte 6 ergeben");
     }
+
+    @Test
+    public void testZero() {
+        assertThrows(IllegalArgumentException.class, () -> calculator.divide(18, 0), " Geht einfach nicht");
+
+    }
 }
