@@ -28,7 +28,8 @@ public class CalculatorTest {
 
     @Test
     public void testDivideByNull() {
-       assertThrows(IllegalArgumentException.class, () -> calculator.divide(6, 0));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> calculator.divide(6, 0));
+        assertEquals(exception.getMessage(), "Cannot divide by zero.");
     }
 
 }
