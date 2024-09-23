@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -95,7 +96,8 @@ public class CalculatorTest {
         assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(10000), "Berechnungszeit für 10.000 Fibonacci Zahlen dauerte länger als 1sec");
     }
 
-    @Test
+//nur zu testzwecken
+    @RepeatedTest(value = 5)
     public void testCalculatingTimeForLargeNumbers() {
         assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(1000000000), "Berechnungszeit für 1.000.000.000 Fibonacci Zahlen dauerte länger als 1sec");
     }
