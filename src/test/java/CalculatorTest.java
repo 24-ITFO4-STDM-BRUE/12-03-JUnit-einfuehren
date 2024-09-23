@@ -1,3 +1,5 @@
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
@@ -6,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
 
-    private final Calculator calculator = new Calculator();
+    private Calculator calculator = new Calculator();
 
     @Test
     public void testAdd() {
@@ -41,6 +43,19 @@ public class CalculatorTest {
         });
         assertEquals("Cannot divide by zero.", exception.getMessage());
     }
+
+
+        @BeforeEach
+        public void testBefore() {
+            calculator = new Calculator();
+            System.out.println("Test wird gestartet");
+        }
+
+        @AfterAll
+        public static void testAftereach() {
+            System.out.println("Test abgeschlossen");
+        }
+
 
 
     @Test
