@@ -3,6 +3,9 @@ import org.junit.jupiter.api.*;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.stream.IntStream;
+import org.junit.jupiter.params.*;
+import org.junit.jupiter.engine.*;
+import org.junit.jupiter.params.provider.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 public class CalculatorTest {
@@ -19,9 +22,10 @@ public class CalculatorTest {
         System.out.println("Test abgeschlossen");
     }
 
-    @Test
-    public void testAdd() {
-        assertEquals(5, calculator.add(2, 3), "2 + 3 sollte 5 ergeben");
+    @ParameterizedTest
+    @ValueSource(ints = {1,2,3,4,5})
+    public void testAdd(int param) {
+        assertEquals((2 + param), calculator.add(2, param), "2 + "+ param +"  sollte "+ (2 + param) +" ergeben");
     }
 
     @Test
