@@ -44,7 +44,6 @@ public class CalculatorTest {
         assertEquals("Cannot divide by zero.", exception.getMessage());
     }
 
-
         @BeforeEach
         public void testBefore() {
             calculator = new Calculator();
@@ -52,7 +51,7 @@ public class CalculatorTest {
         }
 
         @AfterAll
-        public static void testAftereach() {
+        public static void testAfter() {
             System.out.println("Test abgeschlossen");
         }
 
