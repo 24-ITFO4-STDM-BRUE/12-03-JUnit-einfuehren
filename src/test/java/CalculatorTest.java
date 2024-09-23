@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.time.Duration;
 
@@ -23,6 +25,12 @@ public class CalculatorTest {
     @Test
     public void testAdd() {
         assertEquals(5, calculator.add(2, 3), "2 + 3 sollte 5 ergeben");
+    }
+
+    @ParameterizedTest
+    @CsvSource({"3,2,1", "6,5,1", "6,2,4", "1,8,-7", "99,0,99"})
+    public void testAddPara(int result, int a, int b){
+        assertEquals(result, calculator.add(a,b));
     }
 
     @Test
