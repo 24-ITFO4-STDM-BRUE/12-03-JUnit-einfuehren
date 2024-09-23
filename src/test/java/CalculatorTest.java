@@ -1,9 +1,24 @@
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.time.Duration;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
 
-    private final Calculator calculator = new Calculator();
+    private Calculator calculator = new Calculator();
+
+    @BeforeEach
+    public void Reset(){
+        calculator = new Calculator();
+    }
+
+    @AfterEach
+    public void msgComplete(){
+        System.out.println("Test abgeschlossen");
+    }
 
     @Test
     public void testAdd() {
@@ -41,5 +56,27 @@ public class CalculatorTest {
     public void testDivideZero() {
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> calculator.divide(1,0));
         assertEquals("Cannot divide by zero.", ex.getMessage());
+    }
+
+    @Test
+    public void testFibZero(){
+        assertArrayEquals(new int[]{}, calculator.generateFibonacci(0));
+    }
+
+    @Test
+    public void testFibOne(){
+        assertArrayEquals(new int[]{0}, calculator.generateFibonacci(1));
+        assertNotNull(calculator.generateFibonacci(1));
+    }
+
+    @Test
+    public void testFibMany(){
+        assertArrayEquals(new int[]{0,1}, calculator.generateFibonacci(2));
+        assertArrayEquals(new int[]{0,1,1}, calculator.generateFibonacci(3));
+        assertArrayEquals(new int[]{0,1,1,2,3,5,8,13,21}, calculator.generateFibonacci(9));
+    }
+    @Test
+    public void testFibTime(){
+        assertTimeout(Duration.ofSeconds(1), ()->calculator.generateFibonacci(99));
     }
 }
