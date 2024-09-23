@@ -31,9 +31,23 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testGroeßerDurchKleiner() {
+    public void testGreaterDividedBySmaller() {
         assertEquals(0.5, calculator.divide(5,10),"5 / 10 sollte 0.5 ergeben");
     }
+
+    @Test
+    public void testFibonacciArrayBiggerZero() {assertTrue(calculator.generateFibonacci(5).length > 0,"muss gleich sein");}
+
+    @Test
+    public void testFibonacciArrayIsZero() {assertTrue(calculator.generateFibonacci(0).length == 0,"muss gleich sein");}
+
+    @Test
+    public void testFibonacciFirstEntries() {assertTrue(calculator.generateFibonacci(50)[0] == 0 && calculator.generateFibonacci(50)[1] == 1,"muss gleich sein");}
+
+
+    @Test
+    public void testFibonacciCorrectArray() {assertArrayEquals(new int[]{0,1,1,2,3},calculator.generateFibonacci(5),"Array muss so aussehen");}
+
 
 }
 
