@@ -1,4 +1,7 @@
 import org.junit.jupiter.api.Test;
+
+import java.time.Duration;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
@@ -25,4 +28,20 @@ public class CalculatorTest {
 
     @Test
     public void testDivideZero() {assertThrows(IllegalArgumentException.class, () -> calculator.divide(4, 0), "Solle Exception werfen."); }
+
+    @Test
+    public void testGenerateFibonacciNotNull(){assertNotNull(calculator.generateFibonacci(4),"Cool! Toll gemacht");}
+
+    @Test
+    public void testGenerateFibonacci(){assertArrayEquals(new int[]{0,1,1,2,3}, calculator.generateFibonacci(5),"Cool! Toll gemacht");}
+
+    @Test
+    public void testGenerateFibonacciEmpty(){assertArrayEquals(new int[]{}, calculator.generateFibonacci(0));}
+
+    @Test
+    public void testGenerateFibonacciCorrect(){assertArrayEquals(new int[]{0,1}, calculator.generateFibonacci(2),"Cool! Toll gemacht");}
+
+    @Test
+    public void testGenerateFibonacciTimeOut(){assertTimeout(Duration.ofSeconds(1), new int[]{}, calculator.generateFibonacci(5),"Cool! Toll gemacht");}
+}
 }
