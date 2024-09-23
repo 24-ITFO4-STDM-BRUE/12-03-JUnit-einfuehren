@@ -7,7 +7,7 @@ import java.time.Duration;
 
 public class CalculatorTest {
 
-    private final Calculator calculator = new Calculator();
+    Calculator calculator = new Calculator();
 
     @BeforeEach
     void setUp() {
@@ -64,7 +64,7 @@ public class CalculatorTest {
 
     @Test
     public void testFibonacciTestDuration() {assertTimeout(Duration.ofSeconds(1),() -> {
-        calculator.generateFibonacci(40);});};
+        calculator.generateFibonacci(40);});}
 
 }
 
