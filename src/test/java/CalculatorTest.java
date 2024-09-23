@@ -1,9 +1,23 @@
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import java.time.Duration;
 
 public class CalculatorTest {
 
     private final Calculator calculator = new Calculator();
+
+    @BeforeEach
+    void setUp() {
+        Calculator calculator = new Calculator();
+    }
+
+    @AfterEach
+    void doneWithIt() {
+        System.out.println("Test abgeschlossen ♥");
+    }
 
     @Test
     public void testAdd() {
@@ -48,6 +62,9 @@ public class CalculatorTest {
     @Test
     public void testFibonacciCorrectArray() {assertArrayEquals(new int[]{0,1,1,2,3},calculator.generateFibonacci(5),"Array muss so aussehen");}
 
+    @Test
+    public void testFibonacciTestDuration() {assertTimeout(Duration.ofSeconds(1),() -> {
+        calculator.generateFibonacci(40);});};
 
 }
 
