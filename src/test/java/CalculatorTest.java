@@ -1,4 +1,7 @@
 import org.junit.jupiter.api.Test;
+
+import java.time.Duration;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
@@ -25,15 +28,24 @@ public class CalculatorTest {
 
     @Test
     void testDivideByZero() {
-        IllegalArgumentException exception =
-        assertThrows(IllegalArgumentException.class, () -> {
-            throw new IllegalArgumentException("message");
-        });
-        assertEquals("message", exception.getMessage());
+        {assertThrows(IllegalArgumentException.class,() -> {calculator.divide(12, 0);});
 
         assertThrows(RuntimeException.class, () -> {
-            throw new IllegalArgumentException("message");
+            throw new IllegalArgumentException("Cannot divide by zero.");
         });
 
+        }
+    }
+    @Test
+    void testGenerateFibonacci() {
+        {assertArrayEquals(new int[]{0, 1, 1, 2, 3},calculator.generateFibonacci(5));};
+    }
+    @Test
+    void testGenerateFibonacciNull() {
+        {assertArrayEquals(new int[]{},calculator.generateFibonacci(0));};
+    }
+    @Test
+    void testGenerateFibonacciTime() {
+        {assertTimeout(Duration.ofSeconds(1),() -> calculator.generateFibonacci(9032222));};
     }
 }
