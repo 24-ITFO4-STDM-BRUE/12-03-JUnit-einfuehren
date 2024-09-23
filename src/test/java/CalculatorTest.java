@@ -44,4 +44,9 @@ public class CalculatorTest {
         assertEquals(0, result[0]);
         assertEquals(0, result[1]);
     }
+
+    @Test
+    public void testFibonacciNull() {
+        assertEquals(new  int[]{}, calculator.generateFibonacci(0));
+    }
 }
