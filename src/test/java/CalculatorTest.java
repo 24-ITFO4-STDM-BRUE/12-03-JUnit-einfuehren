@@ -1,10 +1,24 @@
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
 
-    private final Calculator calculator = new Calculator();
+    private Calculator calculator;
+
+    @BeforeEach
+    public void setUpCalculator(){
+         calculator = new Calculator();
+    }
+
+    @AfterEach
+    public void printEnd(){
+        System.out.println("Test abgeschlossen");
+    }
 
     @Test
     public void testAdd() {
@@ -28,8 +42,46 @@ public class CalculatorTest {
 
     @Test
     public void testDivideByNull() {
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> calculator.divide(6, 0));
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> calculator.divide(6, 0),"Die Fehlermeldungen stimmen nicht überein");
         assertEquals(exception.getMessage(), "Cannot divide by zero.");
     }
 
+    @Test
+    public void testArrayNotEmpty(){
+        int[] testArray = calculator.generateFibonacci(5);
+        assertTrue(testArray.length > 0);
+    }
+
+    @Test
+    public void testArrayIsEmpty(){
+        int[] emptyArray = new int[]{};
+        assertArrayEquals(emptyArray,calculator.generateFibonacci(0));
+    }
+
+    @Test
+    public void testFirstValuesCorrect(){
+        int[] correctValues = new int[]{0,1};
+        int[] testValues = calculator.generateFibonacci(2);
+        assertArrayEquals(correctValues,testValues);
+    }
+
+    @Test
+    public void testValuesCorrect(){
+        int[] correctValues = new int[]{0,1,1,2,3,5,8,13};
+        int[] testValues = calculator.generateFibonacci(8);
+        assertArrayEquals(correctValues,testValues);
+    }
+
+    @Test
+    public void testCalculatingTimeForSmallNumbers(){
+        assertTimeout(Duration.ofSeconds(1),() -> calculator.generateFibonacci(100),"Berechnungszeit für 100 Fibonacci Zahlen dauerte länger als 1sec");
+    }
+    @Test
+    public void testCalculatingTimeForMidiNumbers(){
+        assertTimeout(Duration.ofSeconds(1),() -> calculator.generateFibonacci(10000),"Berechnungszeit für 10.000 Fibonacci Zahlen dauerte länger als 1sec");
+    }
+    @Test
+    public void testCalculatingTimeForLargeNumbers(){
+        assertTimeout(Duration.ofSeconds(1),() -> calculator.generateFibonacci(1000000000),"Berechnungszeit für 1.000.000.000 Fibonacci Zahlen dauerte länger als 1sec");
+    }
 }
