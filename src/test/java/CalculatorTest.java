@@ -1,4 +1,7 @@
 import org.junit.jupiter.api.Test;
+
+import java.time.Duration;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
@@ -38,4 +41,27 @@ public class CalculatorTest {
         });
         assertEquals("Cannot divide by zero.", exception.getMessage());
     }
+
+
+    @Test
+    public  void testFibonacci() {
+assertNotNull(calculator.generateFibonacci(6), "ist hoffentlich nicht null" );
+    }
+
+
+    @Test
+    public  void testArrayNull() {
+        assertArrayEquals(new int[] {}, calculator.generateFibonacci(0), "Aarry ist null");
+    }
+
+    @Test
+    public void testFirstNumber() {
+        assertArrayEquals(new int[] {0, 1, 1, 2, 3}, calculator.generateFibonacci(5), "wir sind leider nicht korrekt ;(");
+    }
+    @Test
+    public  void testTimeout() {
+        assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(100000), "war leider zu langsam");
+    }
+
+
 }
