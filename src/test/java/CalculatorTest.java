@@ -21,14 +21,28 @@ public class CalculatorTest {
     }
 
     @Test
-     public void testDivide() {
+    public void testDivide() {
         assertEquals(2, calculator.divide(4, 2));
     }
 
     @Test
     public void testDivideByZero() {
-            IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ( ) -> {
-                calculator.divide(10, 0);
-            });
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> {
+            calculator.divide(10, 0);
+        });
+    }
+
+    @Test
+    public void testFibonacci() {
+        assertEquals((new int[]{0, 1, 1, 2, 3, 5, 8, 13, 21}),calculator.generateFibonacci(10));
+    }
+    @Test
+    public void  testFibonacciFirstTwoValues() {
+
+        int[] result = calculator.generateFibonacci(10);
+
+        assertEquals(0, result[0]);
+        assertEquals(0, result[1]);
+
     }
 }
