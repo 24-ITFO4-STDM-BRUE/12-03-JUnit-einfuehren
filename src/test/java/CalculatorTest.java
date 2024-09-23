@@ -43,6 +43,5 @@ public class CalculatorTest {
 
         assertEquals(0, result[0]);
         assertEquals(0, result[1]);
-
     }
 }
