@@ -47,6 +47,11 @@ public class CalculatorTest {
     }
 
     @Test
+    public void testArrayNotNull(){
+        assertNotNull(calculator.generateFibonacci(0));
+    }
+
+    @Test
     public void testArrayNotEmpty(){
         int[] testArray = calculator.generateFibonacci(5);
         assertTrue(testArray.length > 0);
