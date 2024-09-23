@@ -15,7 +15,6 @@ public class CalculatorTest {
     }
 
 
-
     @Test
     public void testSubtract() {
         assertEquals(1, calculator.subtract(5, 4), "5 - 4 sollte 1 ergeben");
@@ -25,11 +24,15 @@ public class CalculatorTest {
     public void testMultiply() {
         assertEquals(6, calculator.multiply(2, 3), "2 * 3 sollte 6 ergeben");
     }
+
     @Test
-    public void testdivide1() {assertEquals(10, calculator.divide(20, 2), "20 : 2 sollte 10 ergeben");
+    public void testdivide1() {
+        assertEquals(10, calculator.divide(20, 2), "20 : 2 sollte 10 ergeben");
     }
+
     @Test
-    public void testdivide2() {assertEquals(5, calculator.divide(20, 4), "20 : 4 sollte 5 ergeben");
+    public void testdivide2() {
+        assertEquals(5, calculator.divide(20, 4), "20 : 4 sollte 5 ergeben");
     }
 
     /*public void testdivide3() {
@@ -47,22 +50,29 @@ public class CalculatorTest {
         assertEquals("expected message", exception.getMessage());
     }*/
     @Test
-    public void testnotnull()
-    {assertNotNull(calculator.generateFibonacci(2),
-            "das werte ist nicht null sein");
+    public void testnotnull() {
+        assertNotNull(calculator.generateFibonacci(2),
+                "das werte ist nicht null sein");
     }
+
     @Test
-    public void testgleich0(){
-        int[] arra=new int[0];
-        assertArrayEquals(arra,calculator.generateFibonacci(5),"Das Wert ist grosser als 0");
+   public void testgleich0() {
+        int[] arra = new int[0];
+        assertArrayEquals(arra, calculator.generateFibonacci(0), "Das Wert ist gleich 0");
     }
+
     @Test
-    public void sequenz (){
-        int[] arra ={0,3,6,4,8,4};
-        assertArrayEquals(arra, calculator.generateFibonacci(6)," 6");
+    public void sequenz() {
+        int[] array = {0, 1, 1, 2, 3, 5};
+        assertArrayEquals(array, calculator.generateFibonacci(6), " 6");
     }
+
     @Test
-    public void testtime(){
-        assertTimeout(Duration.ofSeconds(1),()->{calculator.generateFibonacci(100);});
+    public void testtime() {
+        assertTimeout(Duration.ofSeconds(1), () -> {
+            calculator.generateFibonacci(100);
+        });
     }
+
+
 }
