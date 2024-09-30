@@ -63,5 +63,11 @@ public class CalculatorTest {
         assertEquals(1, calculator.factorial(0));
     }
 
+    @Test
+    public void testGCD() {
+        assertEquals( 6 , calculator.gcd(54, 24));
+        assertEquals( 1 , calculator.gcd(17, 23));
+    }
+
 }
 
