@@ -23,9 +23,9 @@ public class CalculatorTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"1,2,3","4,7,11","9,17,26"})
-    public void testAddWithParams(int a, int b, int e){
-        assertEquals(e,calculator.add(a,b));
+    @CsvSource({"1,2,3", "4,7,11", "9,17,26"})
+    public void testAddWithParams(int a, int b, int e) {
+        assertEquals(e, calculator.add(a, b));
     }
 
     @Test
@@ -91,54 +91,54 @@ public class CalculatorTest {
         assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(10000), "Berechnungszeit für 10.000 Fibonacci Zahlen dauerte länger als 1sec");
     }
 
-//nur zu testzwecken
+    //nur zu testzwecken
     @RepeatedTest(value = 5)
     public void testCalculatingTimeForLargeNumbers() {
         assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(1000000), "Berechnungszeit für 1.000.000 Fibonacci Zahlen dauerte länger als 1sec");
     }
 
     @Test
-    public void testPositiveExponent(){
-        assertEquals(8,calculator.power(2,3));
+    public void testPositiveExponent() {
+        assertEquals(8, calculator.power(2, 3));
     }
 
     @Test
-    public void testZeroExponent(){
-        assertEquals(1,calculator.power(3,0));
+    public void testZeroExponent() {
+        assertEquals(1, calculator.power(3, 0));
     }
 
     @Test
-    public void testFactorialZero(){
-        assertEquals(1,calculator.factorial(0));
+    public void testFactorialZero() {
+        assertEquals(1, calculator.factorial(0));
     }
 
     @Test
-    public void testFactorialSmallNumber(){
-        assertEquals(120,calculator.factorial(5));
+    public void testFactorialSmallNumber() {
+        assertEquals(120, calculator.factorial(5));
     }
 
     @Test
-    public void testFactorialLargeNumber(){
-        assertEquals(3628800,calculator.factorial(10));
+    public void testFactorialLargeNumber() {
+        assertEquals(3628800, calculator.factorial(10));
     }
 
     @Test
-    public void testGcd(){
-        assertEquals(6,calculator.gcd(54,24));
+    public void testGcd() {
+        assertEquals(6, calculator.gcd(54, 24));
     }
 
     @Test
-    public void testGcdPrime(){
-        assertEquals(1,calculator.gcd(11,13));
+    public void testGcdWithPrime() {
+        assertEquals(1, calculator.gcd(11, 13));
     }
 
     @Test
-    public void testIsPrimeWithPrime(){
+    public void testIsPrimeWithPrime() {
         assertTrue(calculator.isPrime(11));
     }
 
     @Test
-    public void testIsPrimeWithoutPrime(){
+    public void testIsPrimeWithoutPrime() {
         assertFalse(calculator.isPrime(12));
     }
 }

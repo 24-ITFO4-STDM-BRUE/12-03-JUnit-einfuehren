@@ -58,10 +58,10 @@ public class Calculator {
     }
 
     public boolean isPrime(int n){
-        if(n < 2) { // jede Zahl kleiner als 2 ist KEINE Primzahl
+        if(n < 2) {
             return false;
         }
-        for(int i = 2; i < n; i++) { // alle Zahlen von 2 bis n-1
+        for(int i = 2; i < n; i++) {
             if(n % i == 0)
                 return false;
         }
