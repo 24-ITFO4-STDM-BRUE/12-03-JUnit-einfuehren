@@ -88,6 +88,17 @@ public class CalculatorTest {
         assertEquals(0.125,calculator.power (2,-3),0.001 );
 
     }
+    @Test
+    public void testfakultaettestvon0(){
+        int n=5;
+        assertEquals(1, calculator.fakultaet ( 0));
+
+    }
+    public void testfakultaettestvon5(){
+        int n=5;
+        assertEquals(120, calculator.fakultaet ( 5));
+
+    }
 
 
 
