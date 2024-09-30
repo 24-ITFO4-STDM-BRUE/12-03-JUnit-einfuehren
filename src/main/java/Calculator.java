@@ -30,4 +30,26 @@
             }
             return fib;
         }
+        // Methode zur Berechnung von Potenzen
+        public double power(int base, int exponent) {
+            if (exponent == 0) {
+                return 1;  // Jede Zahl hoch 0 ist 1
+            }
+
+            double result = 1;
+            int absExponent = Math.abs(exponent);
+
+            // Für positive Exponenten
+            for (int i = 0; i < absExponent; i++) {
+                result *= base;
+            }
+
+            // Wenn der Exponent negativ ist, den Kehrwert des Ergebnisses nehmen
+            if (exponent < 0) {
+                result = 1 / result;
+            }
+
+            return result;
+        }
+
     }

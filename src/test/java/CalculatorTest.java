@@ -111,4 +111,27 @@ public class CalculatorTest {
         // Überprüfe, ob das Ergebnis korrekt ist
         assertNotNull(fibArray, "Das generierte Fibonacci-Array sollte nicht null sein.");
     }
+
+    // Test für positive Exponenten
+    @Test
+    public void testPowerPositiveExponent() {
+        assertEquals(8, calculator.power(2, 3), "2^3 sollte 8 ergeben");
+        assertEquals(125, calculator.power(5, 3), "5^3 sollte 125 ergeben");
+    }
+
+    // Test für exponent = 0
+    @Test
+    public void testPowerZeroExponent() {
+        assertEquals(1, calculator.power(5, 0), "5^0 sollte 1 ergeben");
+        assertEquals(1, calculator.power(0, 0), "0^0 sollte 1 ergeben");
+    }
+
+    // Test für negative Exponenten
+    @Test
+    public void testPowerNegativeExponent() {
+        assertEquals(0.25, calculator.power(2, -2), 0.0001, "2^-2 sollte 0.25 ergeben");
+        assertEquals(0.2, calculator.power(5, -1), 0.0001, "5^-1 sollte 0.2 ergeben");
+    }
+
 }
+
