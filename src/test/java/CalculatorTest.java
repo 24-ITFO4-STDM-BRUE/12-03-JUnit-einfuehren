@@ -1,9 +1,15 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
 
-    private final Calculator calculator = new Calculator();
+    private Calculator calculator;
+
+    @BeforeEach
+    public void init() {
+        calculator = new Calculator();
+    }
 
     @Test
     public void testAdd() {
