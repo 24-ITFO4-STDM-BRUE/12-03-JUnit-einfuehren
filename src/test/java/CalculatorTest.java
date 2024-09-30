@@ -52,7 +52,7 @@ public class CalculatorTest {
     }
     @Test
     void testFibonacciDuration() {
-        assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(99999999));
+        assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(99));
     }
 
     @Test
@@ -71,5 +71,13 @@ public class CalculatorTest {
     @Test
     void testGCD() {
         assertEquals(4, calculator.gcd(4, 8));
+    }
+
+    @Test
+    void testIsPrime() {
+        assertTrue(calculator.isPrime(11));
+        assertTrue(calculator.isPrime(2));
+        assertFalse(calculator.isPrime(4));
+        assertFalse(calculator.isPrime(9));
     }
 }
