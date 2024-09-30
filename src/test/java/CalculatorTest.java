@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -131,5 +130,15 @@ public class CalculatorTest {
     @Test
     public void testGcdPrime(){
         assertEquals(1,calculator.gcd(11,13));
+    }
+
+    @Test
+    public void testIsPrimeWithPrime(){
+        assertTrue(calculator.isPrime(11));
+    }
+
+    @Test
+    public void testIsPrimeWithoutPrime(){
+        assertFalse(calculator.isPrime(12));
     }
 }
