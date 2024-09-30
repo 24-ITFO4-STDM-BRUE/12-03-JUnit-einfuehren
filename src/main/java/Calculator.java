@@ -1,3 +1,5 @@
+import java.lang.Math;
+
 public class Calculator {
     public int add(int a, int b) {
         return a + b;
@@ -29,5 +31,34 @@ public class Calculator {
             }
         }
         return fib;
+    }
+
+    public double power(double a, double b) {
+        return Math.pow(a, b);
+    }
+
+    public int factorial(int a) {
+        int result = 1;
+        for(int i = 1; i <= a; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    public int gcd(int a, int b) {
+        int sum = a * b;
+        int gcd = 0;
+        for(int i = sum; i > 0; i--) {
+            if (a % i == 0 && b % i == 0) {
+                gcd = i;
+                break;
+            }
+        }
+        return gcd;
+    }
+
+    public int gcdrec(int a, int b) {
+        if ( b == 0 ) return a;
+        return gcd(b, a % b);
     }
 }

@@ -29,15 +29,19 @@ public class CalculatorTest {
     }
 
     @Test
-    void testExpectedExceptionIsThrown() {assertThrows(IllegalArgumentException.class, () -> {calculator.divide(12, 0);});}
+    void testExpectedExceptionIsThrown() {
+        assertThrows(IllegalArgumentException.class, () -> {calculator.divide(12, 0);});
+    }
 
     @Test
     void testFibonacci() {
-        assertArrayEquals(new int[]{0, 1, 1, 2, 3, 5}, calculator.generateFibonacci(6));}
+        assertArrayEquals(new int[]{0, 1, 1, 2, 3, 5}, calculator.generateFibonacci(6));
+    }
 
     @Test
-    void testFibonacciNull() {
-        assertArrayEquals(new int[]{}, calculator.generateFibonacci(0));}
+    void testFibonacciZero() {
+        assertArrayEquals(new int[]{}, calculator.generateFibonacci(0));
+    }
 
     @Test
     void testFibonacciFirstTwoValues() {
@@ -49,5 +53,23 @@ public class CalculatorTest {
     @Test
     void testFibonacciDuration() {
         assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(99999999));
+    }
+
+    @Test
+    void testPower() {
+        assertEquals(8, calculator.power(2, 3));
+        assertEquals(0.125, calculator.power(2, -3));
+        assertEquals(-0.125, calculator.power(-2, -3));
+    }
+
+    @Test
+    void testFactorial() {
+        assertEquals(120, calculator.factorial(5));
+        assertEquals(1, calculator.factorial(0));
+    }
+
+    @Test
+    void testGCD() {
+        assertEquals(4, calculator.gcd(4, 8));
     }
 }
