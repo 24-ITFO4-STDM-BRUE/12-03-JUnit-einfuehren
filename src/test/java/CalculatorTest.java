@@ -57,5 +57,11 @@ public class CalculatorTest {
         assertEquals(1, calculator.power(5, 0));
     }
 
+    @Test
+    public void testFactiorial() {
+        assertEquals(120, calculator.factorial(5));
+        assertEquals(1, calculator.factorial(0));
+    }
+
 }
 
