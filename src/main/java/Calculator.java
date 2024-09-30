@@ -32,4 +32,62 @@ public class Calculator {
         }
         return fib;
     }
+
+    public double power (int x, int y)  {
+        double i = 1;
+
+        if (y < 0) {
+
+               if (x == 0) {
+                   throw new IllegalArgumentException("Cannot divide by zero.");
+               }
+               while (y < 0) {
+                   i = i / x;
+                   y++;
+               }
+           }
+
+         else {
+          if  (y == 0) {
+            i = i * x;
+        }else {
+              while (y > 0) {
+                  i = i * x;
+                  y--;
+              }
+          }
+        }
+
+        return i;
+    };
+
+    public int factorial(int n) {
+
+      int ergebnis = 1;
+      while (n > 0) {
+        ergebnis = ergebnis * n;
+        n--;
+      };
+      return ergebnis;
+    };
+
+    public int gcd(int x, int y) {
+      int teiler = 2;
+      int ergebnis = 1;
+
+      boolean teilerGefunden = false;
+      while (!teilerGefunden) {
+          if (x % teiler == 0){
+              if (y % (x / teiler) == 0){
+                  ergebnis = x / teiler;
+                  teilerGefunden = true;
+              }
+          }
+              teiler ++;
+      }
+
+      return ergebnis;
+    };
+
+
 }

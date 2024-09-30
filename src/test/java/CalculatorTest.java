@@ -1,9 +1,12 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import java.time.Duration;
+
 
 public class CalculatorTest {
 
@@ -65,6 +68,51 @@ public class CalculatorTest {
     @Test
     public void testFibonacciTestDuration() {assertTimeout(Duration.ofSeconds(1),() -> {
         calculator.generateFibonacci(40);});}
+
+    @Test
+    public void testPowerNegativeBase(){
+        assertThrows(IllegalArgumentException.class,
+                ()-> {
+                    calculator.power(0,-1);
+                });
+    }
+
+    @Test
+    public void testPowerNegativeExponent()  {
+        assertEquals(0.2,calculator.power(5,-1));
+    }
+
+
+    @Test
+    public void testPowerZeroExponent()  {
+        assertEquals(5,calculator.power(5,0));
+    }
+
+    @Test
+    public void testPowerPositiveExponent() {
+        assertEquals(81,calculator.power(3,4));
+    }
+
+    @Test
+    public void testFactorial() {
+        assertEquals(120,calculator.factorial(5));
+    }
+
+    @Test
+    public void testFactorialZero() {
+        assertEquals(1,calculator.factorial(0));
+    }
+
+    @Test
+    public void testGcd() {
+        assertEquals(6,calculator.gcd(54,24));
+    }
+
+    @Test
+    public void testGcdPrimenumbers() {
+        assertEquals(1,calculator.gcd(17,13));
+    }
+
 
 }
 
