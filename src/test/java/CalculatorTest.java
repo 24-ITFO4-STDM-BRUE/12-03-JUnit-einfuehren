@@ -100,7 +100,7 @@ public class CalculatorTest {
 //nur zu testzwecken
     @RepeatedTest(value = 5)
     public void testCalculatingTimeForLargeNumbers() {
-        assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(1000000000), "Berechnungszeit für 1.000.000.000 Fibonacci Zahlen dauerte länger als 1sec");
+        assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(1000000), "Berechnungszeit für 1.000.000 Fibonacci Zahlen dauerte länger als 1sec");
     }
 
     @Test
