@@ -17,4 +17,49 @@ public class Calculator {
         }
         return (double) a / b;
     }
+
+    public int [] generateFibonacci (int n) {
+        if (n <= 0) return new int[]{};
+        int[] fib = new int[n];
+        fib[0] = 0;
+        if (n > 1) {
+            fib[1] = 1;
+            for (int i = 2; i < n; i++) {
+                fib[i] = fib[i - 1] + fib[i - 2];
+            }
+        }
+        return fib;
+    }
+    // Methode zur Berechnung von Potenzen
+    public double power(int base, int exponent) {
+        if (exponent == 0) {
+            return 1;  // Jede Zahl hoch 0 ist 1
+        }
+
+        double result = 1;
+        int absExponent = Math.abs(exponent);
+
+        // Für positive Exponenten
+        for (int i = 0; i < absExponent; i++) {
+            result *= base;
+        }
+
+        // Wenn der Exponent negativ ist, den Kehrwert des Ergebnisses nehmen
+        if (exponent < 0) {
+            result = 1 / result;
+        }
+
+        return result;
+    }
+    public long factorial(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("Fakultät ist nur für nicht-negative Zahlen definiert.");
+        }
+        long result = 1;
+        for (int i = 2; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
 }
