@@ -69,5 +69,10 @@ public class CalculatorTest {
         assertEquals( 1 , calculator.gcd(17, 23));
     }
 
+    @Test
+    public void testIsPrime() {
+        assertEquals(true, calculator.isPrime(11));
+        assertEquals(false , calculator.isPrime(4));
+    }
 }
 
