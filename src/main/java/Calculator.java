@@ -29,6 +29,13 @@ public class Calculator {
         }
         return fib;
     }
+    public double power (int base, int exponent){
+        double basic  = base;
+        double exponenta = exponent;
+      double erg=(double )Math.pow(basic,exponent);
+      return erg;
+    }
+
 
 
 

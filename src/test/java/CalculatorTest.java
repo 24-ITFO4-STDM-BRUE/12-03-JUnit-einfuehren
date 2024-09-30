@@ -73,6 +73,22 @@ public class CalculatorTest {
             calculator.generateFibonacci(100);
         });
     }
+    @Test
+    public void testpower(){
+        assertEquals(8,calculator.power (2,3) );
+
+    }
+    @Test
+    public void testpowerhoch0(){
+        assertEquals(1,calculator.power (5,0) );
+
+    }
+    @Test
+    public void testpowernegativ(){
+        assertEquals(0.125,calculator.power (2,-3),0.001 );
+
+    }
+
 
 
 }
