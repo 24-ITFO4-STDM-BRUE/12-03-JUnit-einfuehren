@@ -11,6 +11,26 @@ public class Calculator {
         return a * b;
     }
 
+    public int power(int base, int exponent){
+        int i;
+        int ergebnis = base;
+        if (exponent == 0) { return 1; }
+          for (i = 0; i < exponent-1; i++) {
+              ergebnis *=base;
+          }
+        return ergebnis;
+    }
+
+    public int factoria(int yeah){
+        int i;
+        int ergebnis = yeah;
+        for(i=yeah-1;i==1;i--){
+             ergebnis = i * i-1;
+        }
+        return ergebnis;
+    }
+
+
     public double divide(int a, int b) {
         if (b == 0) {
             throw new IllegalArgumentException("Cannot divide by zero.");

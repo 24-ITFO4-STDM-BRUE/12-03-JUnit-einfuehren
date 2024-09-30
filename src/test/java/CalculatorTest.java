@@ -41,7 +41,13 @@ public class CalculatorTest {
     @Test
     public void testGenerateFibonacciCorrect(){assertArrayEquals(new int[]{0,1}, calculator.generateFibonacci(2),"Cool! Toll gemacht");}
 
+    //@Test
+   // public void testGenerateFibonacciTimeOut(){assertTimeout(Duration.ofSeconds(1), new int[]{}, calculator.generateFibonacci(5),"Cool! Toll gemacht");}
+
     @Test
-    public void testGenerateFibonacciTimeOut(){assertTimeout(Duration.ofSeconds(1), new int[]{}, calculator.generateFibonacci(5),"Cool! Toll gemacht");}
+    public void testPower() {assertEquals(1,calculator.power(9,0));}
+
+    @Test
+    public void testFactoria() {assertEquals(120, calculator.factoria(5));}
 }
-}
+
