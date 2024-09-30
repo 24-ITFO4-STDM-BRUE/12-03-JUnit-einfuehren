@@ -77,4 +77,13 @@ public class CalculatorTest {
 
     @Test
     public void testGcdPrime() { assertEquals(1, calculator.gcd(17, 13), "Der größte gemeinsame Teiler von 17 und 13 ist 1."); }
+
+    @Test
+    public void testPrimeTrue() { assertTrue(calculator.isPrime(11), "11 ist eine Primzahl."); }
+
+    @Test
+    public void testPrimeFalse() { assertFalse(calculator.isPrime(4), "4 ist keine Primzahl."); }
+
+    @Test
+    public void testPrimeNegative() { assertFalse(calculator.isPrime(-7), "Negative Zahlen können keine Primzahl sein."); }
 }
