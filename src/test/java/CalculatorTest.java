@@ -33,8 +33,8 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testFibonacci() {
-        assertEquals((new int[]{0, 1, 1, 2, 3, 5, 8, 13, 21}),calculator.generateFibonacci(10));
+    void testFibonacci() {
+        assertArrayEquals(new int[]{0, 1, 1, 2, 3, 5}, calculator.generateFibonacci(6));
     }
 
     @Test
@@ -47,8 +47,8 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testFibonacciNull() {
-        assertEquals(new  int[]{}, calculator.generateFibonacci(0));
+    void testFibonacciZero() {
+        assertArrayEquals(new int[]{}, calculator.generateFibonacci(0));
     }
 
     @Test
