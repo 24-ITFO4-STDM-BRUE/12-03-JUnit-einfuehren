@@ -46,12 +46,8 @@ public class Calculator {
         return ergebnis;
     }
 
+    public int ggt(int i, int i1) {
 
-    public int primzahlen(int i, int i1) {
         return 0;
     }
 }
-
-
-
-

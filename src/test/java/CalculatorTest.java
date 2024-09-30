@@ -101,12 +101,13 @@ public class CalculatorTest {
 
     }
     @Test
-    public void testprimazahlen(){
-          assertEquals(6, calculator.primzahlen (54,24));
+    public void testggt(){
+          assertEquals(6, calculator.ggt (54,24));
 
     }
 
-
+    @Test
+    public void
 
 
 }
