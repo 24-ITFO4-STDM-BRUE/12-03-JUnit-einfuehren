@@ -30,4 +30,23 @@ public class Calculator {
         }
         return fib;
     }
+
+    public int powerCalc(int base, int power) {
+        return (int) Math.pow(base, power);
+    }
+
+    public int factorial(int factor) {
+        if(factor <= 2){
+            return factor;
+        }
+        return factor * factorial(factor -1);
+    }
+
+    public int gcd(int firstDiv, int secondDiv) {
+        return secondDiv==0 ? firstDiv : gcd(secondDiv, firstDiv % secondDiv);
+    }
+
+    public boolean isPrime(int number) {
+
+    }
 }

@@ -1,10 +1,8 @@
 import org.junit.jupiter.api.*;
 
 import java.time.Duration;
-import java.util.Arrays;
-import java.util.stream.IntStream;
+
 import org.junit.jupiter.params.*;
-import org.junit.jupiter.engine.*;
 import org.junit.jupiter.params.provider.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -59,10 +57,50 @@ public class CalculatorTest {
         assertTrue(calculator.divide(10, 3) > 3.3);
 
     }
+
+    @Test
+    public void testPowerCalcPositivNumber() {
+        assertEquals(8, calculator.powerCalc(2,3));
+        assertEquals(1, calculator.powerCalc(5,0));
+    }
+
+    @Test
+    public void testPowerCalcNegativeNumber() {
+        assertEquals(-8, calculator.powerCalc(-2,3));
+        assertEquals(1, calculator.powerCalc(-5,0));
+    }
+
+    @Test
+    public void testPowerCalcZero() {
+        assertEquals(1, calculator.powerCalc(0, 0));
+    }
+
+    @Test
+    public void testFactorialCalcPositivNumbers() {
+        assertEquals(120, calculator.factorial(5));
+        assertEquals(0, calculator.factorial(0));
+        assertTimeout(Duration.ofSeconds(1),() -> calculator.factorial(19));
+    }
+
+    @Test
+    public void testFactorialCalcOverflow() {
+        assertTrue(0>calculator.factorial(20));
+    }
+
+    @Test
+    public void testFactorialCalcNegativNumbers() {
+        assertEquals(-120, calculator.factorial(-5));
+    }
+
+    @Test
+    public void testGCDCalc() {
+        assertEquals(6, calculator.gcd(54,24));
+        assertEquals(1, calculator.gcd(17,13));
+    }
+
     @Nested
     @DisplayName("FibonacciTests")
     class FibonacciTest {
-
 
         @Test
         public void testGenerateFibonacciNotNull() {
