@@ -94,11 +94,18 @@ public class CalculatorTest {
         assertEquals(1, calculator.fakultaet ( 0));
 
     }
+    @Test
     public void testfakultaettestvon5(){
         int n=5;
         assertEquals(120, calculator.fakultaet ( 5));
 
     }
+    @Test
+    public void testprimazahlen(){
+          assertEquals(6, calculator.primzahlen (54,24));
+
+    }
+
 
 
 

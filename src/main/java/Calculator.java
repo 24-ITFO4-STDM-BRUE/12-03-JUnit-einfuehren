@@ -37,14 +37,20 @@ public class Calculator {
     }
     public static long fakultaet(int n)
     {
-        if (n<0){
+        if (n < 0){
             throw new IllegalArgumentException("fakultaet ist nicht für negative Zahlen " +
                 "geeignet");}
-        long ergebnis=1; for(int i=1;i<n;i++){
-            ergebnis*=i;}
+        long ergebnis = 1;
+        for(int i = 1;i <= n; i++){
+            ergebnis *= i;}
         return ergebnis;
     }
+
+
+    public int primzahlen(int i, int i1) {
+        return 0;
     }
+}
 
 
 
