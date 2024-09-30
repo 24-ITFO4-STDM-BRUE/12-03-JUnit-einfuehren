@@ -86,4 +86,13 @@ public class CalculatorTest {
 
     @Test
     public void testPrimeNegative() { assertFalse(calculator.isPrime(-7), "Negative Zahlen können keine Primzahl sein."); }
+
+    @Test
+    public void testSqrt() { assertEquals(3, calculator.sqrt(9), "Die Quadratwurzel von 9 ist 3."); }
+
+    @Test
+    public void testSqrtDecimal() { assertEquals(1.414, calculator.sqrt(2), 0.0005, "Die Quadratwurzel von 2 ist 1.141."); }
+
+    @Test
+    public void testSqrtNegative() { assertThrows(IllegalArgumentException.class, () -> calculator.sqrt(-2), "Bei negativem Input soll sqrt eine Exception werfen."); }
 }
