@@ -85,6 +85,30 @@ public class CalculatorTest {
     }
     @Test
     public void testFibTime(){
-        assertTimeout(Duration.ofSeconds(1), ()->calculator.generateFibonacci(99));
+        assertTimeout(Duration.ofSeconds(1), ()->calculator.generateFibonacci(9999999));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"8,2,3", "1,5,0"})
+    public void testPower(int result, int base, int exponent){
+        assertEquals(result, calculator.power(base,exponent));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"120,5", "1,0"})
+    public void testFactorial(int result, int n){
+        assertEquals(result, calculator.factorial(n));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"6,54,24", "1,17,13"})
+    public void testGCD(int result, int base, int exponent){
+        assertEquals(result, calculator.gcd(base,exponent));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"true,2", "true,11", "false,4", "false,9"})
+    public void testIsPrime(boolean result, int n){
+        assertEquals(result, calculator.isPrime(n));
     }
 }
