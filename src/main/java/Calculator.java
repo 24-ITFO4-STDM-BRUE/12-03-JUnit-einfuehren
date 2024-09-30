@@ -30,4 +30,49 @@ public class Calculator {
         }
         return fib;
     }
+
+    public double power(int base, int exponent) {
+        if (exponent == 0) return 1;
+
+        boolean negExp = false;
+        if (exponent < 0) {
+            exponent *= -1;
+            negExp = true;
+        }
+
+        double result = base;
+        for (int i = 1; i < exponent; i++) {
+            result *= base;
+        }
+        if (negExp) {
+            result = 1 / result;
+        }
+
+        return result;
+    }
+
+    public long factorial(int n) {
+        if (n < 0)
+            throw new IllegalArgumentException("Für negative Zahlen kann keine Fakultät berechnet werden.");
+        if (n == 0)
+            return 1;
+
+        long result = n;
+        for (int i = n - 1; i > 0; i--) {
+            result *= i;
+        }
+
+        return result;
+    }
+
+    public int gcd(int a, int b) {
+        int ret = 1;
+        for (int i = Math.min(a, b); i > 0; i--) {
+            if (a % i == 0 && b % i == 0) {
+                ret = i;
+                break;
+            }
+        }
+        return ret;
+    }
 }

@@ -53,4 +53,28 @@ public class CalculatorTest {
 
     @Test
     public void testFibonacciTimeout() { assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(100000000), "Die Generierung der Fibonacci-Reihe sollte nicht länger als eine Sekunde dauern."); }
+
+    @Test
+    public void testPower() { assertEquals(8, calculator.power(2, 3), "2^3 soll 8 ergeben."); }
+
+    @Test
+    public void testPowerExponentZero() { assertEquals(1, calculator.power(5, 0), "Hoch 0 soll immer 1 ergeben."); }
+
+    @Test
+    public void testPowerExponentNegative() { assertEquals(0.125, calculator.power(2, -3), "2^-3 soll 0.125 ergeben."); }
+
+    @Test
+    public void testFactorial() { assertEquals(120, calculator.factorial(5), "5! soll 120 ergeben."); }
+
+    @Test
+    public void testFactorialZero() { assertEquals(1, calculator.factorial(0), "0! soll 1 ergeben."); }
+
+    @Test
+    public void testFactorialNegative() { assertThrows(IllegalArgumentException.class, () -> calculator.factorial(-1), "Bei negativen Zahlen soll factorial() eine Exception schmeißen."); }
+
+    @Test
+    public void testGcd() { assertEquals(6, calculator.gcd(54, 24), "Der größte gemeinsame Teiler von 54 und 24 ist 6."); }
+
+    @Test
+    public void testGcdPrime() { assertEquals(1, calculator.gcd(17, 13), "Der größte gemeinsame Teiler von 17 und 13 ist 1."); }
 }
