@@ -81,4 +81,32 @@ public class CalculatorTest {
     public void testPowerZero() {
         assertEquals(1, calculator.power(2,0));
     }
+
+    @Test
+    public void testFactorial() {
+        assertEquals(120, calculator.factorial(5));
+    }
+    @Test
+    public void testFactorialZero() {
+        assertEquals(1, calculator.factorial(0));
+    }
+
+    @Test
+    public void testGemeinsamerTeiler() {
+        assertEquals(6, calculator.gcd(54, 24));
+    }
+
+    @Test
+    public void testGemeinsamerTeilerPrimzahl() {
+        assertEquals(1, calculator.gcd(17, 13));
+    }
+
+    @Test
+    public void testIsPrime() {
+        assertTrue(calculator.isPrime(11));
+    }
+    @Test
+    public void testIsNotPrime() {
+        assertFalse(calculator.isPrime(4));
+    }
 }

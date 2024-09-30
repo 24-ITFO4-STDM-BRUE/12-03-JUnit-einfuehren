@@ -33,10 +33,53 @@ public class Calculator {
     }
 
     public double power (int base, int exponent) {
-        double result = 0;
-        for (int i = 0; i <= exponent; i++){
-            result = base * base;
+        if(exponent == 0){
+            return 1;
         }
-        return result;
+        else if (exponent < 0) {
+            double result = base;
+            for (int i = -1; i > exponent; i--) {
+                result = result * base;
+            }
+            return 1 / result;
+        }
+        else {
+            double result = base;
+            for (int i = 1; i < exponent; i++) {
+                result = result * base;
+            }
+            return result;
+        }
+    }
+
+    public int factorial (int n) {
+        if(n == 0) {
+            return 1;
+        }
+        else {
+            int result = n;
+            for(int i = n - 1; i > 0; i--){
+                result = result * i;
+            }
+            return result;
+        }
+    }
+
+    public int gcd (int a, int b) {
+        if (a == 0)
+            return b;
+        if (b == 0)
+            return a;
+        if (a < b)
+            return gcd(b, a);
+        return gcd(b, a % b);
+    }
+
+    public boolean isPrime(int n) {
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0)
+                return false;
+        }
+        return true;
     }
 }
