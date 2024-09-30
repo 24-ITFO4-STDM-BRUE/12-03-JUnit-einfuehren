@@ -38,7 +38,7 @@ public class Calculator {
     public static long fakultaet(int n)
     {
         if (n<0){
-            throw new IllegalArgumentException("fakultaet ist nicht für negative Zahlen g" +
+            throw new IllegalArgumentException("fakultaet ist nicht für negative Zahlen " +
                 "geeignet");}
         long ergebnis=1; for(int i=1;i<n;i++){
             ergebnis*=i;}
