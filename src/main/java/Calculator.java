@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.lang.Math;
 
 public class Calculator {
     public int add(int a, int b) {
@@ -33,5 +34,9 @@ public class Calculator {
             }
         }
         return fib;
+    }
+
+    public double power(double a, double b) {
+        return Math.pow(a,b);
     }
 }

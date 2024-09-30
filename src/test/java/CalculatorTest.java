@@ -36,17 +36,26 @@ public class CalculatorTest {
     public void testFibonacci() {
         assertEquals((new int[]{0, 1, 1, 2, 3, 5, 8, 13, 21}),calculator.generateFibonacci(10));
     }
+
     @Test
     public void  testFibonacciFirstTwoValues() {
 
         int[] result = calculator.generateFibonacci(10);
 
         assertEquals(0, result[0]);
-        assertEquals(0, result[1]);
+        assertEquals(1, result[1]);
     }
 
     @Test
     public void testFibonacciNull() {
         assertEquals(new  int[]{}, calculator.generateFibonacci(0));
     }
+
+    @Test
+    public void testPower() {
+        assertEquals(8, calculator.power(2, 3));
+        assertEquals(1, calculator.power(5, 0));
+    }
+
 }
+
