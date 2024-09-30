@@ -133,5 +133,30 @@ public class CalculatorTest {
         assertEquals(0.2, calculator.power(5, -1), 0.0001, "5^-1 sollte 0.2 ergeben");
     }
 
+    // Test für n = 0
+    @Test
+    public void testFactorialOfZero() {
+        assertEquals(1, calculator.factorial(0), "0! sollte 1 ergeben");
+    }
+
+    // Test für positive Werte
+    @Test
+    public void testFactorialOfFive() {
+        assertEquals(120, calculator.factorial(5), "5! sollte 120 ergeben");
+    }
+
+    // Test für größere Werte
+    @Test
+    public void testFactorialOfTen() {
+        assertEquals(3628800, calculator.factorial(10), "10! sollte 3628800 ergeben");
+    }
+
+    // Test für negative Werte
+    @Test
+    public void testFactorialOfNegativeNumber() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> calculator.factorial(-1));
+        assertEquals("Fakultät ist nur für nicht-negative Zahlen definiert.", exception.getMessage());
+    }
+
 }
 
