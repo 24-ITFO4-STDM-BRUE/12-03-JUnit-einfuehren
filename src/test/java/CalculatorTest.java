@@ -113,6 +113,11 @@ public class CalculatorTest {
         assertEquals(1,calculator.gcd(17,13));
     }
 
+    @Test
+    public void testIsPrime() {
+        assertEquals(true,calculator.isPrime(11));
+    }
+
 
 }
 

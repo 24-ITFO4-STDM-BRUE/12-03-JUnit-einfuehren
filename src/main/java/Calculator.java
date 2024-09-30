@@ -89,5 +89,20 @@ public class Calculator {
       return ergebnis;
     };
 
+    public boolean isPrime(int n) {
+        int teiler = 2;
+        boolean istPreim = true;
+        if (n > 2) {
+            while (teiler < n || istPreim) {
+                if (n % teiler == 0) {
+                    istPreim = false;
+                }
+                teiler ++;
+            }
+        } else {
+            istPreim = false;
+        }
+        return istPreim;
+    }
 
 }
