@@ -82,4 +82,12 @@ public class Calculator {
         }
         return true;
     }
+
+    public double sqrt(int n) {
+        if (n <= 0) {
+            throw new IllegalArgumentException("Cannot divide by zero.");
+        } else {
+            return Math.sqrt(n);
+        }
+    }
 }
