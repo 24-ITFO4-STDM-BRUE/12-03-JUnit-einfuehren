@@ -79,6 +79,7 @@ public class CalculatorTest {
         assertArrayEquals(correctValues, testValues);
     }
 
+
     @Test
     public void testValuesCorrect() {
         int[] correctValues = new int[]{0, 1, 1, 2, 3, 5, 8, 13};
@@ -100,5 +101,40 @@ public class CalculatorTest {
     @RepeatedTest(value = 5)
     public void testCalculatingTimeForLargeNumbers() {
         assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(1000000000), "Berechnungszeit für 1.000.000.000 Fibonacci Zahlen dauerte länger als 1sec");
+    }
+
+    @Test
+    public void testPositiveExponent(){
+        assertEquals(8,calculator.power(2,3));
+    }
+
+    @Test
+    public void testZeroExponent(){
+        assertEquals(1,calculator.power(3,0));
+    }
+
+    @Test
+    public void testFactorialZero(){
+        assertEquals(1,calculator.factorial(0));
+    }
+
+    @Test
+    public void testFactorialSmallNumber(){
+        assertEquals(120,calculator.factorial(5));
+    }
+
+    @Test
+    public void testFactorialLargeNumber(){
+        assertEquals(3628800,calculator.factorial(10));
+    }
+
+    @Test
+    public void testGcd(){
+        assertEquals(6,calculator.gcd(54,24));
+    }
+
+    @Test
+    public void testGcdPrime(){
+        assertEquals(1,calculator.gcd(11,13));
     }
 }
