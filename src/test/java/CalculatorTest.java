@@ -98,6 +98,19 @@ public class CalculatorTest {
         assertEquals(1, calculator.gcd(17,13));
     }
 
+    @Test
+    public void testIsPrimeTruePrimes() {
+        assertTrue(calculator.isPrime(2));
+        assertTrue(calculator.isPrime(11));
+        assertTrue(calculator.isPrime(2069));
+    }
+
+    @Test
+    public void testIsPrimeNonPrimes() {
+        assertFalse(calculator.isPrime(4));
+        assertFalse(calculator.isPrime(9));
+    }
+
     @Nested
     @DisplayName("FibonacciTests")
     class FibonacciTest {
