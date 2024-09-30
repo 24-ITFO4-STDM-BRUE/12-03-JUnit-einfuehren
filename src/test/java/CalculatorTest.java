@@ -111,4 +111,10 @@ public class CalculatorTest {
     public void testIsPrime(boolean result, int n){
         assertEquals(result, calculator.isPrime(n));
     }
+
+    @ParameterizedTest
+    @CsvSource({"3.0,9.0", "1.414,2"})
+    public void testSquareRout(double result, double n){
+        assertEquals(result, calculator.round(calculator.sqrt(n), 3));
+    }
 }

@@ -1,3 +1,6 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Calculator {
     public int add(int a, int b) {
         return a + b;
@@ -43,7 +46,6 @@ public class Calculator {
     }
 
     public int  gcd(int a, int b){
-
         int teiler;
         teiler = Math.min(a, b);
         while(a % teiler !=0 || b % teiler !=0){
@@ -61,5 +63,15 @@ public class Calculator {
                 return false;
 
         return true;
+    }
+
+    public double sqrt(double n){
+        return Math.sqrt(n);
+    }
+
+    public double round(double n, int spaces){
+        BigDecimal bd = new BigDecimal(Double.toString(n));
+        bd = bd.setScale(spaces, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 }
