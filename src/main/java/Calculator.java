@@ -1,3 +1,5 @@
+import java.lang.Math;
+
 public class Calculator {
     public int add(int a, int b) {
         return a + b;
@@ -29,4 +31,29 @@ public class Calculator {
         }
     return fib;
     }
+    public int power(int base, int exponent){
+        if (exponent == 0)
+            return 1;
+        else
+            return base * power(base, exponent - 1);
+    }
+   public int factorial(int base) {
+       int ergebnis = 1;
+       for (int i = base; i > 0; i--) {
+           ergebnis *= i;
+       }
+       return ergebnis;
+   }
+   public int gct(int a, int b) {
+        int sum = a * b;
+        int gcd = 0;
+        for(int i = sum; i > 0; i--){
+            if(a % i == 0 && b % i == 0){
+                gcd = i;
+                break;
+            }
+        }
+       return gcd;
+   }
+
 }

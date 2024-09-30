@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
 
-    private final Calculator calculator = new Calculator();
+    public final Calculator calculator = new Calculator();
 
     @Test
     public void testAdd() {
@@ -29,11 +29,6 @@ public class CalculatorTest {
     @Test
     void testDivideByZero() {
         {assertThrows(IllegalArgumentException.class,() -> {calculator.divide(12, 0);});
-
-        assertThrows(RuntimeException.class, () -> {
-            throw new IllegalArgumentException("Cannot divide by zero.");
-        });
-
         }
     }
     @Test
@@ -47,5 +42,20 @@ public class CalculatorTest {
     @Test
     void testGenerateFibonacciTime() {
         {assertTimeout(Duration.ofSeconds(1),() -> calculator.generateFibonacci(9032222));};
+    }
+
+    @Test
+    void testPower(){
+        assertEquals(1, calculator.power(5, 0));
+    }
+
+    @Test
+    void testFactorial(){
+        assertEquals(1, calculator.factorial(0));
+    }
+
+    @Test
+    void testGgt(){
+        assertEquals(6, calculator.gct(54, 24));
     }
 }
