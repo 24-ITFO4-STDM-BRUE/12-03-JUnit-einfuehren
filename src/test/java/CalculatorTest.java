@@ -77,5 +77,14 @@ assertNotNull(calculator.generateFibonacci(6), "ist hoffentlich nicht null" );
         assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(100000), "war leider zu langsam");
     }
 
+    @Test
+    public  void testPowerExponentPositive() {
+        assertEquals(8, calculator.power(2,3), "das ist leider nicht der richtge Exponent");
+    }
+
+    @Test
+    public  void testPowerZero(){
+        assertEquals(1, calculator.power(5,0), "");
+    }
 
 }
