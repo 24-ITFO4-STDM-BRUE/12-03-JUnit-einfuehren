@@ -1,19 +1,8 @@
-import org.junit.jupiter.api.*;
-
-import java.time.Duration;
-
-import org.junit.jupiter.params.*;
-import org.junit.jupiter.params.provider.*;
-
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class CalculatorTest {
 
-    private Calculator calculator = new Calculator();
-
-    @BeforeEach
-    public void initCalc() {
-        calculator = new Calculator();
-    }
+    private final Calculator calculator = new Calculator();
 
     @AfterEach
     public void endNote() {
