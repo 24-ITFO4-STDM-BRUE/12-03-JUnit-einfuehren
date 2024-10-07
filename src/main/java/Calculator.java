@@ -61,5 +61,38 @@ public class Calculator {
         }
         return result;
     }
+    // Methode zur Berechnung des größten gemeinsamen Teilers (ggT)
+    public int gcd(int a, int b) {
+        if (a == 0) {
+            return b;
+        }
+        if (b == 0) {
+            return a;
+        }
+
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+
+        return a;
+    }
+    // Methode zur Überprüfung, ob eine Zahl eine Primzahl ist
+    public boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+
+        // Prüfe nur bis zur Quadratwurzel von n
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 
 }

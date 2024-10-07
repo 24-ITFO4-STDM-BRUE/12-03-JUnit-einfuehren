@@ -157,5 +157,45 @@ public class CalculatorTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> calculator.factorial(-1));
         assertEquals("Fakultät ist nur für nicht-negative Zahlen definiert.", exception.getMessage());
     }
+    // Tests for the gcd method
+    @Test
+    public void testGcdWithCommonDivisor() {
+        assertEquals(6, calculator.gcd(54, 24), "Der ggT von 54 und 24 sollte 6 sein.");
+        assertEquals(12, calculator.gcd(36, 24), "Der ggT von 36 und 24 sollte 12 sein.");
+    }
+
+    @Test
+    public void testGcdWithPrimeNumbers() {
+        assertEquals(1, calculator.gcd(17, 13), "Der ggT von 17 und 13 sollte 1 sein, da beide Primzahlen sind.");
+    }
+
+    @Test
+    public void testGcdWithZero() {
+        assertEquals(5, calculator.gcd(5, 0), "Der ggT von 5 und 0 sollte 5 sein.");
+        assertEquals(7, calculator.gcd(0, 7), "Der ggT von 0 und 7 sollte 7 sein.");
+        assertEquals(0, calculator.gcd(0, 0), "Der ggT von 0 und 0 sollte 0 sein.");
+    }
+    // Tests for the isPrime method
+    @Test
+    public void testIsPrimeWithPrimeNumbers() {
+        assertTrue(calculator.isPrime(2), "2 sollte eine Primzahl sein.");
+        assertTrue(calculator.isPrime(11), "11 sollte eine Primzahl sein.");
+        assertTrue(calculator.isPrime(13), "13 sollte eine Primzahl sein.");
+    }
+
+    @Test
+    public void testIsPrimeWithNonPrimeNumbers() {
+        assertFalse(calculator.isPrime(4), "4 sollte keine Primzahl sein.");
+        assertFalse(calculator.isPrime(9), "9 sollte keine Primzahl sein.");
+        assertFalse(calculator.isPrime(15), "15 sollte keine Primzahl sein.");
+    }
+
+    @Test
+    public void testIsPrimeWithEdgeCases() {
+        assertFalse(calculator.isPrime(0), "0 sollte keine Primzahl sein.");
+        assertFalse(calculator.isPrime(1), "1 sollte keine Primzahl sein.");
+        assertTrue(calculator.isPrime(3), "3 sollte eine Primzahl sein.");
+    }
+
 
 }
