@@ -22,10 +22,9 @@ public class Calculator {
     }
 
     public int factoria(int yeah){
-        int i;
-        int ergebnis = yeah;
-        for(i=yeah-1;i==1;i--){
-             ergebnis = i * i-1;
+        int ergebnis = 1;
+        for(int i=yeah;i>0;i--){
+             ergebnis*=i;
         }
         return ergebnis;
     }
@@ -51,5 +50,26 @@ public class Calculator {
             }
         }
         return fib; //hallo
+    }
+
+    public int gcd(int a, int b) {
+        int z;
+        while (b != 0) {
+            z = a % b;
+            a = b;
+            b = z;
+        }
+        return a;
+    }
+
+    public boolean isPrime(int n){
+        if(n < 2) {
+            return false;
+        }
+        for(int i = 2; i < n; i++) {
+            if(n % i == 0)
+                return false;
+        }
+        return true;
     }
 }

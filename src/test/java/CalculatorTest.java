@@ -49,5 +49,11 @@ public class CalculatorTest {
 
     @Test
     public void testFactoria() {assertEquals(120, calculator.factoria(5));}
+
+    @Test
+    public void testGcd() {assertEquals(6, calculator.gcd(54, 24));}
+
+    @Test
+    public void testPrime() {assertTrue(calculator.isPrime(13));}
 }
 
