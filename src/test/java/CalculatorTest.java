@@ -196,6 +196,10 @@ public class CalculatorTest {
         assertFalse(calculator.isPrime(1), "1 sollte keine Primzahl sein.");
         assertTrue(calculator.isPrime(3), "3 sollte eine Primzahl sein.");
     }
-
+    @Test
+    public void testSumOfArray() {
+        int[] numbers = {1, 2, 3, 4, 5};
+        assertEquals(15, calculator.sumOfArray(numbers), "Die Summe sollte 15 sein.");
+    }
 
 }

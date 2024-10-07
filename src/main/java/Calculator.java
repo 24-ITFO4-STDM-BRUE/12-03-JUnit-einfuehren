@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Calculator {
     public int add(int a, int b) {
         return a + b;
@@ -18,7 +20,7 @@ public class Calculator {
         return (double) a / b;
     }
 
-    public int [] generateFibonacci (int n) {
+    public int[] generateFibonacci(int n) {
         if (n <= 0) return new int[]{};
         int[] fib = new int[n];
         fib[0] = 0;
@@ -30,6 +32,7 @@ public class Calculator {
         }
         return fib;
     }
+
     // Methode zur Berechnung von Potenzen
     public double power(int base, int exponent) {
         if (exponent == 0) {
@@ -51,6 +54,7 @@ public class Calculator {
 
         return result;
     }
+
     public long factorial(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("Fakultät ist nur für nicht-negative Zahlen definiert.");
@@ -61,6 +65,7 @@ public class Calculator {
         }
         return result;
     }
+
     // Methode zur Berechnung des größten gemeinsamen Teilers (ggT)
     public int gcd(int a, int b) {
         if (a == 0) {
@@ -78,6 +83,7 @@ public class Calculator {
 
         return a;
     }
+
     // Methode zur Überprüfung, ob eine Zahl eine Primzahl ist
     public boolean isPrime(int n) {
         if (n <= 1) {
@@ -92,6 +98,16 @@ public class Calculator {
         }
 
         return true;
+    }
+
+    /**
+     * Berechnet die Summe aller Zahlen im Array.
+     *
+     * @param numbers Array von ganzen Zahlen
+     * @return die Summe der Zahlen
+     */
+    public int sumOfArray(int[] numbers) {
+        return Arrays.stream(numbers).sum();
     }
 
 
