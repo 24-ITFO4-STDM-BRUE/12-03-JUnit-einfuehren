@@ -201,5 +201,10 @@ public class CalculatorTest {
         int[] numbers = {1, 2, 3, 4, 5};
         assertEquals(15, calculator.sumOfArray(numbers), "Die Summe sollte 15 sein.");
     }
+    @Test
+    public void testAverageOfArray() {
+        int[] numbers = {1, 2, 3, 4, 5};
+        assertEquals(3.0, calculator.averageOfArray(numbers), "Der Durchschnitt sollte 3.0 sein.");
+    }
 
 }

@@ -109,6 +109,15 @@ public class Calculator {
     public int sumOfArray(int[] numbers) {
         return Arrays.stream(numbers).sum();
     }
-
+    /**
+     * Berechnet den Durchschnitt aller Zahlen im Array.
+     * @param numbers Array von ganzen Zahlen
+     * @return der Durchschnitt der Zahlen
+     */
+    public double averageOfArray(int[] numbers) {
+        return Arrays.stream(numbers)
+                .average()
+                .orElse(0);  // Rückgabe 0, falls das Array leer ist
+    }
 
 }
