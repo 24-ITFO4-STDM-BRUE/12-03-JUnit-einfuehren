@@ -78,6 +78,6 @@ public class CalculatorTest {
 
     @Test
     void testPrime(){
-        assertTrue(calculator.isPrime(1));
+        assertTrue(calculator.isPrime(11));
     }
 }
