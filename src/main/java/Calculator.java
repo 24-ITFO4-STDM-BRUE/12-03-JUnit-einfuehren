@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 public class Calculator {
     public int add(int a, int b) {
         return a + b;
@@ -71,5 +73,12 @@ public class Calculator {
                 return false;
         }
         return true;
+    }
+
+    // Mit .stream die Summe berechnet.
+    public Integer summe(ArrayList<Integer> integerArrayList){
+        Integer sum = integerArrayList.stream()
+                .reduce(0, Integer::sum);
+        return sum;
     }
 }

@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
 import java.time.Duration;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -55,5 +57,16 @@ public class CalculatorTest {
 
     @Test
     public void testPrime() {assertTrue(calculator.isPrime(13));}
+
+    @Test
+    public void testSumme() {
+        ArrayList<Integer> arl = new ArrayList<Integer>();
+        arl.add(1);
+        arl.add(2);
+        arl.add(3);
+        arl.add(4);
+        arl.add(5);
+        assertEquals(15,calculator.summe(arl));
+    }
 }
 
