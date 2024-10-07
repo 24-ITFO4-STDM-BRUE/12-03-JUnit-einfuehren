@@ -118,6 +118,15 @@ public class CalculatorTest {
         assertEquals(true,calculator.isPrime(11));
     }
 
+    @Test
+    public void testIsNotPrime() {
+        assertEquals(true,calculator.isPrime(112));
+    }
+
+    @Test
+    public void testSqrt() {
+        assertEquals(3,calculator.sqrt(9));
+    }
 
 }
 

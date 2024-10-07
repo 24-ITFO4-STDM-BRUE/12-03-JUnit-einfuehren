@@ -93,7 +93,7 @@ public class Calculator {
         int teiler = 2;
         boolean istPreim = true;
         if (n > 2) {
-            while (teiler < n || istPreim) {
+            while (teiler < n && istPreim) {
                 if (n % teiler == 0) {
                     istPreim = false;
                 }
@@ -105,4 +105,20 @@ public class Calculator {
         return istPreim;
     }
 
-}
+    public double sqrt(double n) {
+        if (n < 1)
+            return 1.0 / sqrt(1.0 / n);
+        double guess = 1;
+        double add = n / 2;
+        while (add >= Math.ulp(guess)) {
+            double guess2 = guess + add;
+            double result = guess2 * guess2;
+            if (result < n)
+                guess = guess2;
+            else if (result == n)
+                return guess2;
+            add /= 2;
+        }
+        return guess;
+    }
+ }
