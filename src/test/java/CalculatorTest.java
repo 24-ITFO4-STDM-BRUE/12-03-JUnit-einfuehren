@@ -146,6 +146,5 @@ public class CalculatorTest {
         assertEquals(40, calculator.streamAvg(Arrays.asList(50,20,15,75)));
     }
 
-    @Test
-    public void testMAx
+
 }
