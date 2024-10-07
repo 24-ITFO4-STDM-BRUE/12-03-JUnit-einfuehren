@@ -1,3 +1,6 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Calculator {
     public int add(int a, int b) {
         return a + b;
@@ -16,6 +19,10 @@ public class Calculator {
             throw new IllegalArgumentException("Cannot divide by zero.");
         }
         return (double) a / b;
+    }
+
+    public int sum(int[] numbers){
+       return Arrays.stream(numbers).sum();
     }
 
     public int[] generateFibonacci(int n) {

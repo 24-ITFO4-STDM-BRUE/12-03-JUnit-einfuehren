@@ -23,6 +23,7 @@ public class CalculatorTest {
         System.out.println("Test abgeschlossen");
     }
 
+    //region Add
     @Test
     public void testAdd() {
         assertEquals(5, calculator.add(2, 3), "2 + 3 sollte 5 ergeben");
@@ -33,17 +34,23 @@ public class CalculatorTest {
     public void testAddWithParams(int a, int b, int e) {
         assertEquals(e, calculator.add(a, b));
     }
+    //endregion
 
+    //region Subtract
     @Test
     public void testSubtract() {
         assertEquals(1, calculator.subtract(5, 4), "5 - 4 sollte 1 ergeben");
     }
+    //endregion
 
+    //region Multiply
     @Test
     public void testMultiply() {
         assertEquals(6, calculator.multiply(2, 3), "2 * 3 sollte 6 ergeben");
     }
+    //endregion
 
+    //region Divide
     @Test
     public void testDivide() {
         assertEquals(2, calculator.divide(6, 3), "6 : 3 sollte 2 ergeben");
@@ -54,7 +61,9 @@ public class CalculatorTest {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> calculator.divide(6, 0), "Die Fehlermeldungen stimmen nicht überein");
         assertEquals(exception.getMessage(), "Cannot divide by zero.");
     }
+    //endregion
 
+    //region Fibonacci
     @Test
     public void testArrayNotNull() {
         assertNotNull(calculator.generateFibonacci(0));
@@ -102,7 +111,9 @@ public class CalculatorTest {
     public void testCalculatingTimeForLargeNumbers() {
         assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(1000000), "Berechnungszeit für 1.000.000 Fibonacci Zahlen dauerte länger als 1sec");
     }
+    //endregion
 
+    //region Power
     @Test
     public void testPositiveExponent() {
         assertEquals(8, calculator.power(2, 3));
@@ -112,7 +123,9 @@ public class CalculatorTest {
     public void testZeroExponent() {
         assertEquals(1, calculator.power(3, 0));
     }
+    //endregion
 
+    //region Factorial
     @Test
     public void testFactorialZero() {
         assertEquals(1, calculator.factorial(0));
@@ -127,7 +140,9 @@ public class CalculatorTest {
     public void testFactorialLargeNumber() {
         assertEquals(3628800, calculator.factorial(10));
     }
+    //endregion
 
+    //region Gcd
     @Test
     public void testGcd() {
         assertEquals(6, calculator.gcd(54, 24));
@@ -137,7 +152,9 @@ public class CalculatorTest {
     public void testGcdWithPrime() {
         assertEquals(1, calculator.gcd(11, 13));
     }
+    //endregion
 
+    //region IsPrime
     @Test
     public void testIsPrimeWithPrime() {
         assertTrue(calculator.isPrime(11));
@@ -145,6 +162,7 @@ public class CalculatorTest {
 
     @Test
     public void testIsPrimeWithoutPrime() {
-        assertFalse(calculator.isPrime(12));
+        assertFalse(calculator.isPrime(51));
     }
+    //endregion
 }
