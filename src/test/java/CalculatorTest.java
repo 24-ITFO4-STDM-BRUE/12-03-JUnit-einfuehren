@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import java.time.Duration;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -116,5 +117,50 @@ public class CalculatorTest {
     @CsvSource({"3.0,9.0", "1.414,2"})
     public void testSquareRout(double result, double n){
         assertEquals(result, calculator.round(calculator.sqrt(n), 3));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"102.0,'1.0,8.0,12.0,1.0,4.0,9.0,67.0'", "30.0,'17.0,13.0'"})
+    public void testSum(double result, String inputstring){
+        double[] input = parseStringToDoubleArray(inputstring);
+        assertEquals(result, calculator.summe(input));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"1.0,'0.0,2.0'", "15.0,'17.0,13.0'"})
+    public void testAvg(double result, String inputstring){
+        double[] input = parseStringToDoubleArray(inputstring);
+        assertEquals(result, calculator.durchschnitt(input));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"24.0,'54.0,24.0'", "13.0,'17.0,13.0'"})
+    public void testMin(double result, String inputstring){
+        double[] input = parseStringToDoubleArray(inputstring);
+        assertEquals(result, calculator.min(input));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"54.0,'54.0,24.0'", "17.0,'17.0,13.0'"})
+    public void testMax(double result, String inputstring){
+        double[] input = parseStringToDoubleArray(inputstring);
+        assertEquals(result, calculator.max(input));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"'54.0,24.0','54.0,24.0,9.0'", "'2.0','17.0,13.0,2.0'"})
+    public void testFilter(String resultString, String inputstring){
+        double[] result = parseStringToDoubleArray(resultString);
+        double[] input = parseStringToDoubleArray(inputstring);
+        assertArrayEquals(result, calculator.filterGerade(input));
+    }
+
+
+
+    // Helper method to convert a comma-separated string to double[]
+    private double[] parseStringToDoubleArray(String arrayStr) {
+        return Arrays.stream(arrayStr.split(","))
+                .mapToDouble(Double::parseDouble)
+                .toArray();
     }
 }

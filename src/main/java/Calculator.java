@@ -1,5 +1,6 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Arrays;
 
 public class Calculator {
     public int add(int a, int b) {
@@ -74,4 +75,25 @@ public class Calculator {
         bd = bd.setScale(spaces, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
+
+    public double summe(double[] input){
+        return Arrays.stream(input).sum();
+    }
+
+    public double durchschnitt(double[] input){
+        return Arrays.stream(input).sum() / Arrays.stream(input).count();
+    }
+
+    public double max(double[] input){
+        return Arrays.stream(input).max().getAsDouble();
+    }
+
+    public double min(double[] input){
+        return Arrays.stream(input).min().getAsDouble();
+    }
+
+    public double[] filterGerade(double[] input){
+        return Arrays.stream(input).filter(n -> n%2 == 0).toArray();
+    }
+
 }
