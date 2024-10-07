@@ -1,3 +1,7 @@
+import java.lang.reflect.Array;
+import java.util.List;
+import java.util.Map;
+
 public class Calculator {
 
     public int add(int a, int b) {
@@ -89,5 +93,11 @@ public class Calculator {
         } else {
             return Math.sqrt(n);
         }
+    }
+
+    public double sum(List<Integer> integers) {
+        Integer sum = integers.stream()
+                .reduce(0, Integer::sum);
+        return sum;
     }
 }

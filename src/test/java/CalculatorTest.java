@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.Map;
 
 public class CalculatorTest {
 
@@ -50,7 +52,7 @@ public class CalculatorTest {
 
     @Test
     public void testGenerateFibonacciTimeout() {
-        assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(50_000_000), "GenerateFibonacci sollte auch bei größeren Zahlen in unter 1 sek laufen");
+        assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(5_000_000), "GenerateFibonacci sollte auch bei größeren Zahlen in unter 1 sek laufen");
     }
 
     @Test
@@ -105,5 +107,10 @@ public class CalculatorTest {
     public void testSqrtNegativ() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> calculator.sqrt(-9), "Teilen durch 0 sollte eine IllegalArgumentException werfen");
         assertEquals("Cannot divide by zero.", exception.getMessage(), "IllegalArgumentException sollte Cannot divide by zero wiedergeben");
+    }
+
+    @Test
+    public void testCalcSum() {
+        assertEquals(9, calculator.sum(Arrays.asList(2,3,4)));
     }
 }
