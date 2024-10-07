@@ -1,5 +1,8 @@
+import java.util.stream.*;
+import java.util.*;
+
 public class Calculator {
-    public int add(int a, int b) {
+    public double add(double a, double b) {
         return a + b;
     }
 
@@ -120,5 +123,26 @@ public class Calculator {
             add /= 2;
         }
         return guess;
+    }
+
+
+
+    public double sum(List<Double> doubleList) {
+        Double ergebnis = 0.0;
+
+
+        ergebnis = doubleList.stream().reduce(0.0,(a,b) -> a + b);
+
+        return ergebnis;
+    }
+
+    public double average(List<Double> doubleList) {
+        Double ergebnis = 0.0;
+
+        ergebnis = doubleList.stream().reduce(0.0, (summe, zahl) -> summe + zahl
+                (summe1, summe2) -> summe1 + summe2)
+                / (double) doubleList.size();
+
+        return ergebnis;
     }
  }

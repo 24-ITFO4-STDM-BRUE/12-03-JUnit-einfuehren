@@ -1,11 +1,13 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.util.*;
 
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import java.time.Duration;
+
 
 
 public class CalculatorTest {
@@ -128,5 +130,14 @@ public class CalculatorTest {
         assertEquals(3,calculator.sqrt(9));
     }
 
+    @Test
+    public void testSum() {
+        assertEquals(25.5,calculator.sum(Arrays.asList(1.5,10.0,10.0,4.0)));
+    }
+
+    @Test
+    public void testAverage() {
+        assertEquals(4.5,calculator.sum(Arrays.asList(1.0,3.0,5.0)));
+    }
 }
 
