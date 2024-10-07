@@ -55,5 +55,23 @@ public class Calculator {
         }
        return gcd;
    }
+    public boolean isPrime(int a){
+        boolean ergebnis;
+        if (a == 2){
+            ergebnis = true;
+        }
+        else if (a == 1){
+            ergebnis = false;
+        }
+        else {
+            if((a % 3 == 0) || (a % 2 == 0)){
+                ergebnis = false;
+            }
+            else {
+                ergebnis = true;
+            }
+        }
+        return ergebnis;
+    }
 
 }

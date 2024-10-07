@@ -24,38 +24,60 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testDivide() {assertEquals(2, calculator.divide(6, 3), "6 / 3 sollte 2 ergeben");}
+    public void testDivide() {
+        assertEquals(2, calculator.divide(6, 3), "6 / 3 sollte 2 ergeben");
+    }
 
     @Test
     void testDivideByZero() {
-        {assertThrows(IllegalArgumentException.class,() -> {calculator.divide(12, 0);});
+        {
+            assertThrows(IllegalArgumentException.class, () -> {
+                calculator.divide(12, 0);
+            });
         }
-    }
-    @Test
-    void testGenerateFibonacci() {
-        {assertArrayEquals(new int[]{0, 1, 1, 2, 3},calculator.generateFibonacci(5));};
-    }
-    @Test
-    void testGenerateFibonacciNull() {
-        {assertArrayEquals(new int[]{},calculator.generateFibonacci(0));};
-    }
-    @Test
-    void testGenerateFibonacciTime() {
-        {assertTimeout(Duration.ofSeconds(1),() -> calculator.generateFibonacci(9032222));};
     }
 
     @Test
-    void testPower(){
+    void testGenerateFibonacci() {
+        {
+            assertArrayEquals(new int[]{0, 1, 1, 2, 3}, calculator.generateFibonacci(5));
+        }
+        ;
+    }
+
+    @Test
+    void testGenerateFibonacciNull() {
+        {
+            assertArrayEquals(new int[]{}, calculator.generateFibonacci(0));
+        }
+        ;
+    }
+
+    @Test
+    void testGenerateFibonacciTime() {
+        {
+            assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(9032222));
+        }
+        ;
+    }
+
+    @Test
+    void testPower() {
         assertEquals(1, calculator.power(5, 0));
     }
 
     @Test
-    void testFactorial(){
+    void testFactorial() {
         assertEquals(1, calculator.factorial(0));
     }
 
     @Test
-    void testGgt(){
+    void testGgt() {
         assertEquals(6, calculator.gct(54, 24));
+    }
+
+    @Test
+    void testPrime(){
+        assertTrue(calculator.isPrime(1));
     }
 }
