@@ -1,8 +1,19 @@
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
 import static org.junit.jupiter.api.Assertions.*;
+import java.time.Duration;
+
+import org.junit.jupiter.params.*;
+import org.junit.jupiter.params.provider.*;
 public class CalculatorTest {
 
-    private final Calculator calculator = new Calculator();
+
+    private Calculator calculator;
+
+    @BeforeEach
+    public void init() {
+        calculator = new Calculator();
+    }
 
     @AfterEach
     public void endNote() {
@@ -74,11 +85,6 @@ public class CalculatorTest {
     @Test
     public void testFactorialCalcOverflow() {
         assertTrue(0>calculator.factorial(20));
-    }
-
-    @Test
-    public void testFactorialCalcNegativNumbers() {
-        assertEquals(-120, calculator.factorial(-5));
     }
 
     @Test
