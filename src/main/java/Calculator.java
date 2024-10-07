@@ -1,5 +1,8 @@
-import java.util.Arrays;
 import java.lang.Math;
+import java.util.IntSummaryStatistics;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Calculator {
     public int add(int a, int b) {
@@ -65,6 +68,12 @@ public class Calculator {
             }
         }
         return true;
+    }
+
+    public long AddAsStream(List<Integer> numbers) {
+        Stream<Integer> stream = numbers.stream();
+        IntSummaryStatistics result = stream.collect(Collectors.summarizingInt(Integer::intValue));
+        return result.getSum();
     }
 
 }
