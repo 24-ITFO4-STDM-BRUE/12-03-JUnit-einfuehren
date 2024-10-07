@@ -1,3 +1,10 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 public class Calculator {
     public int add(int a, int b) {
         return a + b;
@@ -49,5 +56,28 @@ public class Calculator {
     public int ggt(int i, int i1) {
 
         return 0;
+    }
+
+    public Integer streamSum(){
+        List<Integer> zahlen = Arrays.asList(1,2,3,4,5);
+        Stream stream = zahlen.stream();
+        int sum = zahlen.stream()
+                .mapToInt(Integer::intValue)
+                .sum();
+        System.out.println(sum);
+        return sum;
+    }
+    public Integer streamdurchnitt(){
+        List<Integer> zahlen = Arrays.asList(1,2,3,4,5);
+        int sum = zahlen.stream()
+                .mapToInt(Integer::intValue)
+                .sum();
+        int durchnitt=sum/2;
+        return durchnitt;
+    }
+    public static void main(String[] args) {
+        Calculator test = new Calculator();
+        test.streamdurchnitt();
+
     }
 }
