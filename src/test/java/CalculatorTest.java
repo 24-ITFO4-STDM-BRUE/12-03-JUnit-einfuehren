@@ -1,9 +1,8 @@
-<<<<<<< HEAD
+
 import org.junit.jupiter.api.*;
-=======
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
->>>>>>> origin/main
+
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.time.Duration;
@@ -12,17 +11,12 @@ import org.junit.jupiter.params.*;
 import org.junit.jupiter.params.provider.*;
 public class CalculatorTest {
 
-<<<<<<< HEAD
-
     private Calculator calculator;
 
     @BeforeEach
     public void init() {
         calculator = new Calculator();
     }
-=======
-    private final Calculator calculator = new Calculator();
->>>>>>> origin/main
 
     @AfterEach
     public void endNote() {
