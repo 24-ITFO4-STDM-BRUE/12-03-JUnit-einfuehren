@@ -1,4 +1,7 @@
 import java.lang.Math;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Calculator {
     public int add(int a, int b) {
@@ -67,5 +70,10 @@ public class Calculator {
             }
         }
         return true;
+    }
+
+    public long sumIntegers(List<Integer> integers) {
+        Stream<Integer> stream = integers.stream();
+        return stream.collect(Collectors.summarizingInt(Integer::intValue)).getSum();
     }
 }

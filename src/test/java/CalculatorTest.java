@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -79,5 +81,11 @@ public class CalculatorTest {
         assertTrue(calculator.isPrime(2));
         assertFalse(calculator.isPrime(4));
         assertFalse(calculator.isPrime(9));
+    }
+
+    @Test
+    void sumIntegers() {
+        List<Integer> integers = Arrays.asList(5, 12, 8, 2);
+        assertEquals(27, calculator.sumIntegers(integers));
     }
 }
