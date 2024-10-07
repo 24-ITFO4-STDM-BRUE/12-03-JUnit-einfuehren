@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.jupiter.params.*;
 import org.junit.jupiter.params.provider.*;
@@ -133,4 +136,16 @@ public class CalculatorTest {
             assertTimeout(Duration.ofSeconds(1), () -> calculator.generateFibonacci(10));
         }
     }
+    @Test
+    public void testStreamAdd() {
+        assertEquals(10, calculator.streamAdd(Arrays.asList(1,2,3,4)));
+    }
+
+    @Test
+    public void testStreamAvg() {
+        assertEquals(40, calculator.streamAvg(Arrays.asList(50,20,15,75)));
+    }
+
+    @Test
+    public void testMAx
 }

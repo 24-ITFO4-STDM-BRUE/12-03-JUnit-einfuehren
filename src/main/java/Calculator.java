@@ -1,3 +1,7 @@
+import java.util.List;
+import java.util.OptionalInt;
+import java.util.stream.Stream;
+
 public class Calculator {
     public int add(int a, int b) {
         return a + b;
@@ -62,6 +66,21 @@ public class Calculator {
                 return false;
 
         return true;
+    }
+
+    public int streamAdd(List<Integer> numbers) {
+        Stream<Integer>numberStream = numbers.stream();
+        return numberStream.mapToInt(i -> i).sum();
+
+    }
+
+    public double streamAvg(List<Integer> numbers) {
+        return ((double) streamAdd(numbers) / numbers.parallelStream().count());
+    }
+
+    public double streamMax(List<Integer> numbers) {
+        OptionalInt number = numbers.stream().mapToInt(i -> i).max();
+        return number.orElse(0);
     }
 
 }
