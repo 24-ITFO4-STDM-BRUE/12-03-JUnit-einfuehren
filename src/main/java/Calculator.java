@@ -88,6 +88,6 @@ public class Calculator {
 
     public double listMax(List<Integer> zahlen) {
         return zahlen.stream()
-                .collect(Collectors.maxBy(Integer::intValue)).;
+                .collect(Collectors.maxBy(Integer::intValue));
     }
 }
