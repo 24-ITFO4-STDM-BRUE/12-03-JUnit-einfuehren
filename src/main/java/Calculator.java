@@ -101,5 +101,7 @@ public class Calculator {
 
     public Integer streamFilterOdd(List<Integer> intArrList){
         return intArrList.stream().mapToInt(Integer::intValue).min().orElse(0);
+            //.filter(number -> number % 2 == 1)
+              //  .collect(Collectors.toList());
     }
 }
