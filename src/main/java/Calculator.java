@@ -1,11 +1,9 @@
-import java.util.Arrays;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Stream;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
 
 public class Calculator {
@@ -115,9 +113,13 @@ public class Calculator {
         return Arrays.stream(text.split("\\s+"));
     }
 
-    //ToDo: Zählen der Wörter im text.
     //hint: nutzer Sie die splitString Methode (s.o.)
     public Map<String, Long> countWords(String text) {
-        return null;
+        Stream<String> stream = splitString(text);
+        Map<String, Long> result = new HashMap<>();
+        stream.forEach(t -> {
+            result.putIfAbsent(t, (long)Collections.frequency(stream.toList(), t));
+        });
+        return result;
     }
 }
