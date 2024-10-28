@@ -77,8 +77,7 @@ public class Calculator {
 
     // Mit .stream die Summe berechnet.
     public Integer summe(ArrayList<Integer> integerArrayList){
-        Integer sum = integerArrayList.stream()
-                .reduce(0, Integer::sum);
+        Integer sum = integerArrayList.stream().reduce(0, Integer::sum);
         return sum;
     }
 }

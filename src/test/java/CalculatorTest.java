@@ -59,7 +59,7 @@ public class CalculatorTest {
     public void testPrime() {assertTrue(calculator.isPrime(13));}
 
     @Test
-    public void testSumme() {
+    public void testSummeStream() {
         ArrayList<Integer> arl = new ArrayList<Integer>();
         arl.add(1);
         arl.add(2);
