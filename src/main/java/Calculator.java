@@ -113,6 +113,16 @@ public class Calculator {
     //ToDo: Zählen der Wörter im text.
     //hint: nutzer Sie die splitString Methode (s.o.)
     public Map<String, Long> countWords(String text) {
-        return null;
-    }
+        Map<String, Long>results = new HashMap<>();
+        splitString(text).forEach(word -> {
+            if(results.containsKey(word)) {
+                results.put(word, results.get(word) + 1);
+            }
+            else {
+                results.put(word, (long) 1);
+            }
+                });
+        return results;
+        }
+
 }

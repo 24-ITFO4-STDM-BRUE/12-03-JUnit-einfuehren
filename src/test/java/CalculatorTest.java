@@ -175,7 +175,7 @@ public class CalculatorTest {
         Map<Integer, Integer> numbersEven = calculator.streamMapEvenAndSqr(Arrays.asList(50, 20, 15, 75, 23));
         assertTrue(numbersEven.containsKey(20) && numbersEven.get(20).equals(20*20));
     }
-
+    @Test
     public void testSingleWord() {
         Calculator calculator = new Calculator();
         String singleWord = "Java";
@@ -218,6 +218,16 @@ public class CalculatorTest {
         List<String> result = calculator.splitString(text).collect(Collectors.toList());
         assertEquals(3, result.size(), "Es sollte drei Wörter im Stream geben.");
         assertEquals(Arrays.asList("Java", "java", "JAVA"), result, "Die Wörter sollten 'Java', 'java' und 'JAVA' sein.");
+    }
+
+    @Test
+    public void testTextCounter() {
+        String text = "Java Java Java Test Test Wort";
+        Map<String, Long>result = calculator.countWords(text);
+        assertEquals(3, result.size());
+        assertEquals(3, result.get("Java"));
+        assertEquals(2, result.get("Test"));
+        assertEquals(1, result.get("Wort"));
     }
 
 }
