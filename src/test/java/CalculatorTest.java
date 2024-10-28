@@ -6,6 +6,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.OptionalDouble;
+import java.util.OptionalInt;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -60,6 +64,39 @@ public class CalculatorTest {
     public void testDivideByNull() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> calculator.divide(6, 0), "Die Fehlermeldungen stimmen nicht überein");
         assertEquals(exception.getMessage(), "Cannot divide by zero.");
+    }
+    //endregion
+
+    //region Sum
+    @Test
+    public void testSum() {
+        int[] num = {1,2,3};
+        assertEquals(6, calculator.sum(num));
+    }
+    //endregion
+
+    //region average
+    @Test
+    public void testAverage(){
+        int[] num = {1,2,3};
+        assertEquals(OptionalDouble.of(2),calculator.average(num));
+    }
+    //endregion
+
+    //region Min
+    @Test
+    public void testMin(){
+        int[] num = {1,2,3};
+        assertEquals(OptionalInt.of(3),calculator.maxNumber(num));
+    }
+
+    //endregion
+
+    //region max
+    @Test
+    public void testMax(){
+        int[] num = {1,2,3};
+        assertEquals(OptionalInt.of(1),calculator.minNumber(num));
     }
     //endregion
 
@@ -165,4 +202,14 @@ public class CalculatorTest {
         assertFalse(calculator.isPrime(51));
     }
     //endregion
+
+    @Test
+    public void testEvenNumbers(){
+        List<Integer> evenNum = new ArrayList<>();
+        Integer[] numbs = new Integer[]{1,2,3,4,5,6};
+        evenNum.add(2);
+        evenNum.add(4);
+        evenNum.add(6);
+        assertEquals(evenNum,calculator.getEvenNumbers(evenNum.toArray(numbs)));
+    }
 }

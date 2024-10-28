@@ -1,5 +1,8 @@
-import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.List;
+import java.util.OptionalDouble;
+import java.util.OptionalInt;
+import java.util.stream.Collectors;
 
 public class Calculator {
     public int add(int a, int b) {
@@ -25,6 +28,22 @@ public class Calculator {
        return Arrays.stream(numbers).sum();
     }
 
+    public OptionalDouble average(int[] numbers){
+        return Arrays.stream(numbers).average();
+    }
+
+    public OptionalInt maxNumber(int[] numbers){
+        return Arrays.stream(numbers).max();
+    }
+
+    public OptionalInt minNumber(int[] numbers){
+        return Arrays.stream(numbers).min();
+    }
+
+    public List<Integer> getEvenNumbers(Integer[] numbers){
+        var x = Arrays.asList(numbers);
+        return  x.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());
+    }
     public int[] generateFibonacci(int n) {
         if (n <= 0) return new int[]{};
         int[] fib = new int[n];
