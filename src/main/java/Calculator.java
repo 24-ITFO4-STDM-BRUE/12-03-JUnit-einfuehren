@@ -1,6 +1,8 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Calculator {
     public int add(int a, int b) {
@@ -94,6 +96,13 @@ public class Calculator {
 
     public double[] filterGerade(double[] input){
         return Arrays.stream(input).filter(n -> n%2 == 0).toArray();
+    }
+
+    public Map<Double, Double> SaveSqrtToMap(double[] input){
+        input = filterGerade(input);
+        Map<Double, Double> result = new HashMap<>();
+        Arrays.stream(input).forEach(i ->{result.put(i, sqrt(i));});
+        return result;
     }
 
 }
