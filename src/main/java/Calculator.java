@@ -1,6 +1,6 @@
-import java.lang.reflect.Array;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Calculator {
 
@@ -96,8 +96,26 @@ public class Calculator {
     }
 
     public double sum(List<Integer> integers) {
-        Integer sum = integers.stream()
+        return integers.stream()
                 .reduce(0, Integer::sum);
-        return sum;
+    }
+
+    public double average(List<Integer> integers) {
+        int sum = integers.stream()
+                .reduce(0, Integer::sum);
+        return (double) sum / integers.size();
+    }
+
+    public double maxValue(List<Integer> integers) {
+        return Collections.max(integers);
+    }
+
+    public double minValue(List<Integer> integers) {
+        return Collections.min(integers);
+    }
+
+    public List<Integer> evenValue(List<Integer> integers) {
+        return integers.stream()
+                .filter(n -> n%2 == 0).collect(Collectors.toList());
     }
 }

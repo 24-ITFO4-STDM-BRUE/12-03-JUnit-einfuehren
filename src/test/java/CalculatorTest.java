@@ -3,7 +3,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.Duration;
 import java.util.Arrays;
-import java.util.Map;
 
 public class CalculatorTest {
 
@@ -112,5 +111,25 @@ public class CalculatorTest {
     @Test
     public void testCalcSum() {
         assertEquals(9, calculator.sum(Arrays.asList(2,3,4)));
+    }
+
+    @Test
+    public void testCalcAverage() {
+        assertEquals(3, calculator.average(Arrays.asList(2,3,4)));
+    }
+
+    @Test
+    public void testCalcMaxValue() {
+        assertEquals(4, calculator.maxValue(Arrays.asList(2,3,4)));
+    }
+
+    @Test
+    public void testCalcMinValue() {
+        assertEquals(2, calculator.minValue(Arrays.asList(2,3,4)));
+    }
+
+    @Test
+    public void testCalcEvenValue() {
+        assertEquals(Arrays.asList(2,4), calculator.evenValue(Arrays.asList(2,3,4)));
     }
 }
