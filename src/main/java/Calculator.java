@@ -81,5 +81,20 @@ public class Calculator {
         Stream<Integer> stream = integers.stream();
         return stream.collect(Collectors.averagingInt(Integer::intValue));
     }
+
+    public long getMaxValue(List<Integer> integers) {
+        Stream<Integer> stream = integers.stream();
+        return stream.collect(Collectors.summarizingInt(Integer::intValue)).getMax();
+    }
+
+    public long getMinValue(List<Integer> integers) {
+        Stream<Integer> stream = integers.stream();
+        return stream.collect(Collectors.summarizingInt(Integer::intValue)).getMin();
+    }
+
+    public List<Integer> filter(List<Integer> integers) {
+        Stream<Integer> stream = integers.stream();
+        return stream.filter(i -> i % 2 == 0).collect(Collectors.toList());
+    }
 }
 

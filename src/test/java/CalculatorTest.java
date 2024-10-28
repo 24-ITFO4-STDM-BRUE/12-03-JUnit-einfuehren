@@ -94,4 +94,17 @@ public class CalculatorTest {
         List<Integer> integers = Arrays.asList(5, 12, 8, 3);
         assertEquals(7, calculator.calcAverage(integers));
     }
+
+    @Test
+    void getMaxValue() {
+        List<Integer> integers = Arrays.asList(5, 12, 8, 2);
+        assertEquals(12, calculator.getMaxValue(integers));
+    }
+
+    @Test
+    void getMinValue() {
+        List<Integer> integers = Arrays.asList(5, 12, 8, 2);
+        List<Integer> evenIntegers = Arrays.asList(12, 8, 2);
+        assertEquals(evenIntegers, calculator.filter(integers));
+    }
 }
