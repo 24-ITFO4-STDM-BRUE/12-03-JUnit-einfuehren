@@ -1,6 +1,9 @@
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -78,6 +81,12 @@ public class CalculatorTest {
 
     @Test
     void testPrime(){
-        assertTrue(calculator.isPrime(1));
+        assertTrue(calculator.isPrime(11));
     }
+    @Test
+    void testSumStream() {
+        List<Integer> zahlen = Arrays.asList(1, 2, 3, 4, 5);
+        assertEquals(15, calculator.listSum(zahlen));
+    }
+
 }

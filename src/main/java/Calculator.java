@@ -1,4 +1,7 @@
 import java.lang.Math;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.*;
 
 public class Calculator {
     public int add(int a, int b) {
@@ -73,5 +76,18 @@ public class Calculator {
         }
         return ergebnis;
     }
+    public int listSum(List<Integer> zahlen) {
+         return zahlen.stream()
+                 .collect(Collectors.summingInt(Integer::intValue));
+    }
 
+    public double listAvg(List<Integer> zahlen) {
+        return zahlen.stream()
+                .collect(Collectors.averagingInt(Integer::intValue));
+    }
+
+    public double listMax(List<Integer> zahlen) {
+        return zahlen.stream()
+                .collect(Collectors.maxBy(Integer::intValue)).;
+    }
 }
