@@ -1,8 +1,3 @@
-import java.lang.Math;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 public class Calculator {
     public int add(int a, int b) {
         return a + b;
@@ -22,6 +17,18 @@ public class Calculator {
         }
         return (double) a / b;
     }
+
+    // Methode zum Aufteilen des Textes in einen Stream von Wörtern
+    public Stream<String> splitString(String text) {
+        return Arrays.stream(text.split("\\s+"));
+    }
+
+    //ToDo: Zählen der Wörter im text.
+    //hint: nutzer Sie die splitString Methode (s.o.)
+    public Map<String, Long> countWords(String text) {
+        return null;
+    }
+}
 
     public int[] generateFibonacci(int n) {
         if (n <= 0) return new int[]{};
