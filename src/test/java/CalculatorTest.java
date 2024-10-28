@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.lang.reflect.Array;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -66,7 +67,16 @@ public class CalculatorTest {
         arl.add(3);
         arl.add(4);
         arl.add(5);
-        assertEquals(15,calculator.summe(arl));
+        assertEquals(15,calculator.summeStream(arl));
+    }
+
+    @Test
+    public void testSummeStreamZwei(){
+        List<Integer> NeueListe = new ArrayList<>();
+        NeueListe.add(1);
+        NeueListe.add(2);
+        NeueListe.add(3);
+        assertEquals(6,calculator.summeStream(NeueListe));
     }
 }
 
