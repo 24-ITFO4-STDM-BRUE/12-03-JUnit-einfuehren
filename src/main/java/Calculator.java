@@ -1,6 +1,8 @@
 import java.lang.Math;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.*;
 
 public class Calculator {
@@ -86,8 +88,22 @@ public class Calculator {
                 .collect(Collectors.averagingInt(Integer::intValue));
     }
 
-    public double listMax(List<Integer> zahlen) {
+    public int listMax(List<Integer> zahlen) {
         return zahlen.stream()
-                .collect(Collectors.maxBy(Integer::intValue));
+                .collect(Collectors.summarizingInt(Integer::intValue)).getMax();
+    }
+
+    public int listMin(List<Integer> zahlen) {
+        return zahlen.stream()
+                .collect(Collectors.summarizingInt(Integer::intValue)).getMin();
+    }
+
+    public Stream<String> splitString(String text) {
+        return Arrays.stream(text.split("\\s+"));
+    }
+
+    public Map<String, Long> countWords(String text) {
+
+        return null;
     }
 }

@@ -88,5 +88,19 @@ public class CalculatorTest {
         List<Integer> zahlen = Arrays.asList(1, 2, 3, 4, 5);
         assertEquals(15, calculator.listSum(zahlen));
     }
-
+    @Test
+    void testListAvg() {
+        List<Integer> zahlen = Arrays.asList(1, 2, 3, 4, 5);
+        assertEquals(3, calculator.listAvg(zahlen));
+    }
+    @Test
+    void testListMax() {
+        List<Integer> zahlen = Arrays.asList(1, 2, 3, 4, 5);
+        assertEquals(5, calculator.listMax(zahlen));
+    }
+    @Test
+    void testListMin() {
+        List<Integer> zahlen = Arrays.asList(1, 2, 3, 4, 5);
+        assertEquals(1, calculator.listMin(zahlen));
+    }
 }
