@@ -1,3 +1,7 @@
+import java.util.Arrays;
+import java.util.Map;
+import java.util.stream.Stream;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Arrays;
@@ -105,4 +109,15 @@ public class Calculator {
         return result;
     }
 
+
+    // Methode zum Aufteilen des Textes in einen Stream von Wörtern
+    public Stream<String> splitString(String text) {
+        return Arrays.stream(text.split("\\s+"));
+    }
+
+    //ToDo: Zählen der Wörter im text.
+    //hint: nutzer Sie die splitString Methode (s.o.)
+    public Map<String, Long> countWords(String text) {
+        return null;
+    }
 }
