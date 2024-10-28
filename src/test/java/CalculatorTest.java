@@ -1,8 +1,10 @@
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.Map;
 
 public class CalculatorTest {
 
@@ -56,23 +58,24 @@ public class CalculatorTest {
 
     @Test
     public void testPowerPositiv() {
-        assertEquals(8, calculator.power(2,3));
+        assertEquals(8, calculator.power(2, 3));
     }
 
     @Test
     public void testPowerNegativ() {
-        assertEquals(0.125, calculator.power(2,-3));
+        assertEquals(0.125, calculator.power(2, -3));
     }
 
     @Test
     public void testPowerZero() {
-        assertEquals(1, calculator.power(2,0));
+        assertEquals(1, calculator.power(2, 0));
     }
 
     @Test
     public void testFactorial() {
         assertEquals(120, calculator.factorial(5));
     }
+
     @Test
     public void testFactorialZero() {
         assertEquals(1, calculator.factorial(0));
@@ -92,6 +95,7 @@ public class CalculatorTest {
     public void testIsPrime() {
         assertTrue(calculator.isPrime(11));
     }
+
     @Test
     public void testIsNotPrime() {
         assertFalse(calculator.isPrime(4));
@@ -110,26 +114,37 @@ public class CalculatorTest {
 
     @Test
     public void testCalcSum() {
-        assertEquals(9, calculator.sum(Arrays.asList(2,3,4)));
+        assertEquals(9, calculator.sum(Arrays.asList(2, 3, 4)));
     }
 
     @Test
     public void testCalcAverage() {
-        assertEquals(3, calculator.average(Arrays.asList(2,3,4)));
+        assertEquals(3, calculator.average(Arrays.asList(2, 3, 4)));
     }
 
     @Test
     public void testCalcMaxValue() {
-        assertEquals(4, calculator.maxValue(Arrays.asList(2,3,4)));
+        assertEquals(4, calculator.maxValue(Arrays.asList(2, 3, 4)));
     }
 
     @Test
     public void testCalcMinValue() {
-        assertEquals(2, calculator.minValue(Arrays.asList(2,3,4)));
+        assertEquals(2, calculator.minValue(Arrays.asList(2, 3, 4)));
     }
 
     @Test
     public void testCalcEvenValue() {
-        assertEquals(Arrays.asList(2,4), calculator.evenValue(Arrays.asList(2,3,4)));
+        assertEquals(Arrays.asList(2, 4), calculator.evenValue(Arrays.asList(2, 3, 4)));
+    }
+
+    @Test
+    public void testCountWords() {
+        Map<String, Long> map = Map.of(
+                "Hallo", new Long(2),
+                "test", new Long(1),
+                "Test", new Long(2),
+                "Welt", new Long(1)
+        );
+        assertEquals(map, calculator.countWords("Test Hallo Welt Test test Hallo"));
     }
 }

@@ -1,6 +1,10 @@
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Calculator {
 
@@ -117,5 +121,19 @@ public class Calculator {
     public List<Integer> evenValue(List<Integer> integers) {
         return integers.stream()
                 .filter(n -> n%2 == 0).collect(Collectors.toList());
+    }
+
+
+    // Methode zum Aufteilen des Textes in einen Stream von Wörtern
+    public Stream<String> splitString(String text) {
+        return Arrays.stream(text.split("\\s+"));
+    }
+
+    // ToDo: Zählen der Wörter im text.
+    // hint: nutzer Sie die splitString Methode (s.o.)
+    public Map<String, Long> countWords(String text) {
+        Stream<String> textStream = splitString(text);
+        return textStream
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
     }
 }
