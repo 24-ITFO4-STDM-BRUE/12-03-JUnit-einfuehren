@@ -88,4 +88,10 @@ public class CalculatorTest {
         List<Integer> integers = Arrays.asList(5, 12, 8, 2);
         assertEquals(27, calculator.sumIntegers(integers));
     }
+
+    @Test
+    void calcAverage() {
+        List<Integer> integers = Arrays.asList(5, 12, 8, 3);
+        assertEquals(7, calculator.calcAverage(integers));
+    }
 }

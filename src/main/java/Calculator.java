@@ -76,4 +76,10 @@ public class Calculator {
         Stream<Integer> stream = integers.stream();
         return stream.collect(Collectors.summarizingInt(Integer::intValue)).getSum();
     }
+
+    public double calcAverage(List<Integer> integers) {
+        Stream<Integer> stream = integers.stream();
+        return stream.collect(Collectors.averagingInt(Integer::intValue));
+    }
 }
+
