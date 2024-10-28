@@ -1,7 +1,5 @@
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -75,9 +73,25 @@ public class Calculator {
         int durchnitt=sum/2;
         return durchnitt;
     }
+    public int Max(int [] numb){
+        OptionalInt max=Arrays.stream((numb)).max();
+        int[] number={1,2,5,8,7,0,5,1,6};
+        int Maxwert=Max(numb);
+        System.out.println("das Maximum Wert ist " +Maxwert);
+        return max.orElseThrow(()->new IllegalArgumentException("Das darf nicht leer sein"));
+
+    }
+    public int Min(int [] numb){
+        OptionalInt max=Arrays.stream((numb)).min();
+        int[] number={1,2,5,8,7,0,5,1,6};
+        int Maxwert=Min(numb);
+        System.out.println("das minimum Wert ist " +Maxwert);
+        return max.orElseThrow(()->new IllegalArgumentException("Das darf nicht leer sein"));
+
+    }
     public static void main(String[] args) {
         Calculator test = new Calculator();
-        test.streamdurchnitt();
+        test.Max(new int[]{1, 3, 5, 6, 9});
 
     }
 }
