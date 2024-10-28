@@ -1,4 +1,8 @@
 import java.util.Arrays;
+import java.util.Map;
+import java.util.stream.Stream;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
@@ -93,5 +97,16 @@ public class Calculator {
                 return false;
         }
         return true;
+    }
+
+    // Methode zum Aufteilen des Textes in einen Stream von Wörtern
+    public Stream<String> splitString(String text) {
+        return Arrays.stream(text.split("\\s+"));
+    }
+
+    //ToDo: Zählen der Wörter im text.
+    //hint: nutzer Sie die splitString Methode (s.o.)
+    public Map<String, Long> countWords(String text) {
+        return null;
     }
 }
