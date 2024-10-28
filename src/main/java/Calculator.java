@@ -1,5 +1,4 @@
-import java.util.List;
-import java.util.OptionalInt;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class Calculator {
@@ -81,6 +80,24 @@ public class Calculator {
     public double streamMax(List<Integer> numbers) {
         OptionalInt number = numbers.stream().mapToInt(i -> i).max();
         return number.orElse(0);
+    }
+
+    public double streamMin(List<Integer> numbers) {
+        OptionalInt number = numbers.stream().mapToInt(i -> i).min();
+        return number.orElse(0);
+    }
+
+    public List<Integer> streamFilterByEven(List<Integer> inputList) {
+        List<Integer> results = new ArrayList<>();
+        inputList.stream().forEach(x -> {if(x % 2 == 0) results.add(x);});
+        return results;
+    }
+
+    public Map<Integer, Integer> streamMapEvenAndSqr(List<Integer> inputList) {
+        List<Integer>evenOnly = streamFilterByEven(inputList);
+        Map<Integer, Integer> results = new HashMap<>();
+        evenOnly.stream().forEach(x -> results.put(x, (int) Math.pow(x, 2)));
+        return results;
     }
 
 }

@@ -9,6 +9,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.jupiter.params.*;
 import org.junit.jupiter.params.provider.*;
@@ -145,6 +146,31 @@ public class CalculatorTest {
     public void testStreamAvg() {
         assertEquals(40, calculator.streamAvg(Arrays.asList(50,20,15,75)));
     }
+
+    @Test
+    public void testStreamMax() {
+        assertEquals(75, calculator.streamMax(Arrays.asList(50,20,15,75,23)));
+    }
+
+    @Test
+    public void testStreamMin() {
+        assertEquals(15, calculator.streamMin(Arrays.asList(50,20,15,75,23)));
+    }
+
+    @Test
+    public void testStreamFilterByEvenNumbers() {
+        List<Integer> numbersEven = calculator.streamFilterByEven(Arrays.asList(50, 20, 15, 75, 23));
+        for (int number : numbersEven) {
+            assertEquals(0, number % 2);
+        }
+    }
+
+    @Test
+    public void testStreamMapEvenAndSqr() {
+        Map<Integer, Integer> numbersEven = calculator.streamMapEvenAndSqr(Arrays.asList(50, 20, 15, 75, 23));
+        assertTrue(numbersEven.containsKey(20) && numbersEven.get(20).equals(20*20));
+    }
+
 
 
 }
