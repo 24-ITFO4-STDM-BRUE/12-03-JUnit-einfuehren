@@ -41,9 +41,10 @@ public class Calculator {
     }
 
     public List<Integer> getEvenNumbers(Integer[] numbers){
-        var x = Arrays.asList(numbers);
+        List<Integer> x = Arrays.asList(numbers);
         return  x.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());
     }
+
     public int[] generateFibonacci(int n) {
         if (n <= 0) return new int[]{};
         int[] fib = new int[n];

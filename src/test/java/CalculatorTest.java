@@ -210,6 +210,6 @@ public class CalculatorTest {
         evenNum.add(2);
         evenNum.add(4);
         evenNum.add(6);
-        assertEquals(evenNum,calculator.getEvenNumbers(evenNum.toArray(numbs)));
+        assertEquals(evenNum,calculator.getEvenNumbers(numbs));
     }
 }
