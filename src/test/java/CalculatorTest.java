@@ -1,18 +1,13 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.OptionalDouble;
-import java.util.OptionalInt;
+import java.util.*;
 
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,6 +46,27 @@ public class CalculatorTest {
     @Test
     public void testMultiply() {
         assertEquals(6, calculator.multiply(2, 3), "2 * 3 sollte 6 ergeben");
+    }
+
+
+    //region Maps
+    @Test
+    public void testCountWords(){
+        Calculator calculator = new Calculator();
+        Map<String, Long> expected = new HashMap<>();
+        expected.put("Dies", 1L);
+        expected.put("ist", 1L);
+        expected.put("ein", 1L);
+        expected.put("Text", 2L);
+        expected.put("über", 1L);
+        expected.put("Java", 1L);
+        expected.put("Java,", 1L);
+        expected.put("geschrieben", 1L);
+        expected.put("in", 2L);
+        expected.put("als", 1L);
+        expected.put("einem", 1L);
+        expected.put("String", 1L);
+        assertEquals(expected, calculator.countWords("Dies ist ein Text über Java, geschrieben in Java als Text in einem String"));
     }
 
     @Test

@@ -1,11 +1,7 @@
-import java.util.Arrays;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Stream;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.OptionalDouble;
-import java.util.OptionalInt;
 import java.util.stream.Collectors;
 
 public class Calculator {
@@ -107,6 +103,18 @@ public class Calculator {
     //ToDo: Zählen der Wörter im text.
     //hint: nutzer Sie die splitString Methode (s.o.)
     public Map<String, Long> countWords(String text) {
-        return null;
+        Map<String, Long> wordMap = new HashMap<>();
+        Stream<String> words = splitString(text);
+        words.forEach(w -> {
+            if(!wordMap.containsKey(w)){
+                wordMap.put(w, 1L);
+            }
+            else
+               wordMap.put(w,wordMap.get(w) + 1);
+        });
+        return wordMap;
     }
+
+
+
 }
