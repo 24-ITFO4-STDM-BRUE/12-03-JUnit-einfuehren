@@ -1,9 +1,9 @@
-<<<<<<< HEAD
+
 import java.util.*;
-=======
+
 import java.util.Arrays;
 import java.util.Map;
->>>>>>> origin/main
+
 import java.util.stream.Stream;
 
 public class Calculator {
@@ -26,7 +26,6 @@ public class Calculator {
         return (double) a / b;
     }
 
-<<<<<<< HEAD
     public int[] generateFibonacci(int n) {
         if(n <= 0) return new int[]{};
         int[] fib = new int[n];
@@ -106,8 +105,6 @@ public class Calculator {
         return results;
     }
 
-}
-=======
     // Methode zum Aufteilen des Textes in einen Stream von Wörtern
     public Stream<String> splitString(String text) {
         return Arrays.stream(text.split("\\s+"));
@@ -119,4 +116,3 @@ public class Calculator {
         return null;
     }
 }
->>>>>>> origin/main

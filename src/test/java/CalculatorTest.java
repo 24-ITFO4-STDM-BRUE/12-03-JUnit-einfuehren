@@ -49,7 +49,6 @@ public class CalculatorTest {
     }
 
     @Test
-<<<<<<< HEAD
     public void testDivideArgumentExep() {
 
         try {
@@ -177,9 +176,6 @@ public class CalculatorTest {
         assertTrue(numbersEven.containsKey(20) && numbersEven.get(20).equals(20*20));
     }
 
-
-
-=======
     public void testSingleWord() {
         Calculator calculator = new Calculator();
         String singleWord = "Java";
@@ -223,5 +219,5 @@ public class CalculatorTest {
         assertEquals(3, result.size(), "Es sollte drei Wörter im Stream geben.");
         assertEquals(Arrays.asList("Java", "java", "JAVA"), result, "Die Wörter sollten 'Java', 'java' und 'JAVA' sein.");
     }
->>>>>>> origin/main
+
 }
