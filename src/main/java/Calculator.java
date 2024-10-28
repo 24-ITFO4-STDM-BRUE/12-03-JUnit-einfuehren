@@ -1,6 +1,8 @@
-import java.util.Arrays;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Stream;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class Calculator {
     public int add(int a, int b) {
@@ -22,6 +24,77 @@ public class Calculator {
         return (double) a / b;
     }
 
+    public int sum(int[] numbers){
+       return Arrays.stream(numbers).sum();
+    }
+
+    public OptionalDouble average(int[] numbers){
+        return Arrays.stream(numbers).average();
+    }
+
+    public OptionalInt maxNumber(int[] numbers){
+        return Arrays.stream(numbers).max();
+    }
+
+    public OptionalInt minNumber(int[] numbers){
+        return Arrays.stream(numbers).min();
+    }
+
+    public List<Integer> getEvenNumbers(Integer[] numbers){
+        List<Integer> x = Arrays.asList(numbers);
+        return  x.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());
+    }
+
+    public int[] generateFibonacci(int n) {
+        if (n <= 0) return new int[]{};
+        int[] fib = new int[n];
+        fib[0] = 0;
+        if (n > 1) {
+            fib[1] = 1;
+            for (int i = 2; i < n; i++) {
+                fib[i] = fib[i - 1] + fib[i - 2];
+            }
+        }
+        return fib;
+    }
+
+    public int power(int base, int exponent) {
+        int result = 1;
+        for (int e = 0; e < exponent; e++) {
+            result *= base;
+        }
+        return result;
+    }
+
+    public int factorial(int n) {
+        int t = 1;
+        for (int c = 1; c <= n; c++) {
+            t = t * c;
+        }
+        return t;
+    }
+
+    public int gcd(int a, int b) {
+        int r;
+        while (b != 0) {
+            r = a % b;
+            a = b;
+            b = r;
+        }
+        return a;
+    }
+
+    public boolean isPrime(int n){
+        if(n < 2) {
+            return false;
+        }
+        for(int i = 2; i < n; i++) {
+            if(n % i == 0)
+                return false;
+        }
+        return true;
+    }
+
     // Methode zum Aufteilen des Textes in einen Stream von Wörtern
     public Stream<String> splitString(String text) {
         return Arrays.stream(text.split("\\s+"));
@@ -30,6 +103,18 @@ public class Calculator {
     //ToDo: Zählen der Wörter im text.
     //hint: nutzer Sie die splitString Methode (s.o.)
     public Map<String, Long> countWords(String text) {
-        return null;
+        Map<String, Long> wordMap = new HashMap<>();
+        Stream<String> words = splitString(text);
+        words.forEach(w -> {
+            if(!wordMap.containsKey(w)){
+                wordMap.put(w, 1L);
+            }
+            else
+               wordMap.put(w,wordMap.get(w) + 1);
+        });
+        return wordMap;
     }
+
+
+
 }
