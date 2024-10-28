@@ -1,6 +1,20 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class Calculator {
+
     public int add(int a, int b) {
         return a + b;
+    }
+
+    public int add(int[] a) {
+        Stream<Integer> stream = (Stream<Integer>) Arrays.stream(a);
+        AtomicInteger sum = new AtomicInteger();
+        stream.forEach(n -> sum.addAndGet(n));
+        return sum.get();
     }
 
     public int subtract(int a, int b) {
@@ -16,6 +30,32 @@ public class Calculator {
             throw new IllegalArgumentException("Cannot divide by zero.");
         }
         return (double) a / b;
+    }
+
+    public double average(int[] a) {
+        int sum = add(a);
+        return sum / a.length;
+    }
+
+    public int max(int[] a) {
+        Stream<Integer> stream = (Stream<Integer>) Arrays.stream(a);
+        return stream.max((e1, e2) -> e1 - e2).get();
+    }
+
+    public int min(int[] a) {
+        Stream<Integer> stream = (Stream<Integer>) Arrays.stream(a);
+        return stream.min((e1, e2) -> e1 - e2).get();
+    }
+
+    public int[] filterEven(int[] a) {
+        Stream<Integer> stream = (Stream<Integer>) Arrays.stream(a);
+        stream = stream.filter(n -> n % 2 == 0);
+
+        Integer[] arrInteger = stream.toArray(Integer[]::new);
+        int[] ret = new int[arrInteger.length];
+        Arrays.setAll(ret, i -> arrInteger[i]);
+
+        return ret;
     }
 
     public int[] generateFibonacci(int n) {
@@ -94,4 +134,6 @@ public class Calculator {
 
         return Math.sqrt(n);
     }
+
+
 }
