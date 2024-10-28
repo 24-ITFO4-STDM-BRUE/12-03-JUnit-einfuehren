@@ -1,6 +1,6 @@
 import java.util.Arrays;
-import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Calculator {
     public int add(int a, int b) {
@@ -121,35 +121,37 @@ public class Calculator {
                 .average()
                 .orElse(0);  // Rückgabe 0, falls das Array leer ist
     }
-    // Berechnet die Summe aller Zahlen im Array mit Streams
-    public int sumWithStreams(int[] numbers) {
-        return Arrays.stream(numbers).sum();
-    }
 
-    // Berechnet den Durchschnitt aller Zahlen im Array mit Streams
-    public double averageWithStreams(int[] numbers) {
-        return Arrays.stream(numbers)
-                .average()
-                .orElse(0);
-    }
-    // Findet den maximalen Wert im Array mit Streams
-    public int maxWithStreams(int[] numbers) {
-        return Arrays.stream(numbers)
-                .max()
-                .orElseThrow(() -> new IllegalArgumentException("Array darf nicht leer sein."));
-    }
-    // Findet den minimalen Wert im Array mit Streams
-    public int minWithStreams(int[] numbers) {
-        return Arrays.stream(numbers)
-                .min()
-                .orElseThrow(() -> new IllegalArgumentException("Array darf nicht leer sein."));
-    }
-    // Erstellt eine Map, in der die geraden Zahlen die Schlüssel sind und ihre Quadrate die Werte
-    public Map<Integer, Integer> evenNumbersAndTheirSquares(int[] numbers) {
-        return Arrays.stream(numbers)
-                .filter(n -> n % 2 == 0)
-                .boxed()
-                .collect(Collectors.toMap(n -> n, n -> n * n));
-    }
+
+//    // Berechnet die Summe aller Zahlen im Array mit Streams
+//    public int sumWithStreams(int[] numbers) {
+//        return Arrays.stream(numbers).sum();
+//    }
+//
+//    // Berechnet den Durchschnitt aller Zahlen im Array mit Streams
+//    public double averageWithStreams(int[] numbers) {
+//        return Arrays.stream(numbers)
+//                .average()
+//                .orElse(0);
+//    }
+//    // Findet den maximalen Wert im Array mit Streams
+//    public int maxWithStreams(int[] numbers) {
+//        return Arrays.stream(numbers)
+//                .max()
+//                .orElseThrow(() -> new IllegalArgumentException("Array darf nicht leer sein."));
+//    }
+//    // Findet den minimalen Wert im Array mit Streams
+//    public int minWithStreams(int[] numbers) {
+//        return Arrays.stream(numbers)
+//                .min()
+//                .orElseThrow(() -> new IllegalArgumentException("Array darf nicht leer sein."));
+//    }
+//    // Erstellt eine Map, in der die geraden Zahlen die Schlüssel sind und ihre Quadrate die Werte
+//    public Map<Integer, Integer> evenNumbersAndTheirSquares(int[] numbers) {
+//        return Arrays.stream(numbers)
+//                .filter(n -> n % 2 == 0)
+//                .boxed()
+//                .collect(Collectors.toMap(n -> n, n -> n * n));
+//    }
 
 }
