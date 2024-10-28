@@ -76,7 +76,38 @@ public class CalculatorTest {
         NeueListe.add(1);
         NeueListe.add(2);
         NeueListe.add(3);
-        assertEquals(6,calculator.summeStream(NeueListe));
+        NeueListe.add(4);
+        assertEquals(2.5,calculator.summeStreamZwei(NeueListe));
+    }
+
+    @Test
+    public void testSummeStreamDrei(){
+        List<Integer> NeueListe = new ArrayList<>();
+        NeueListe.add(1);
+        NeueListe.add(66);
+        NeueListe.add(3);
+        NeueListe.add(4);
+        assertEquals(66,calculator.summeStreamDrei(NeueListe));
+    }
+
+    @Test
+    public void testSummeStreamVrei(){
+        List<Integer> NeueListe = new ArrayList<>();
+        NeueListe.add(1);
+        NeueListe.add(66);
+        NeueListe.add(3);
+        NeueListe.add(4);
+        assertEquals(1,calculator.summeStreamVier(NeueListe));
+    }
+
+    @Test
+    public void testSummeStreamFuenf(){
+        List<Integer> NeueListe = new ArrayList<>();
+        NeueListe.add(1);
+        NeueListe.add(66);
+        NeueListe.add(3);
+        NeueListe.add(4);
+        assertEquals(1,calculator.streamFilterOdd(NeueListe));
     }
 }
 

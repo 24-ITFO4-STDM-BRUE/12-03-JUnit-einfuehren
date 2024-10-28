@@ -1,5 +1,7 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import com.sun.org.apache.bcel.internal.generic.INEG;
+
+import java.util.List;
+
 public class Calculator {
     public int add(int a, int b) {
         return a + b;
@@ -76,9 +78,28 @@ public class Calculator {
     }
 
     // Mit .stream die Summe berechnet.
-    public Integer summeStream(ArrayList<Integer> integerArrayList){
+    public Integer summeStream(List<Integer> integerArrayList){
         Integer sum = integerArrayList.stream()
                 .reduce(0, Integer::sum);
         return sum;
+    }
+
+    public double summeStreamZwei(List<Integer> intArrList){
+        return intArrList.stream()
+                .mapToDouble(Integer::doubleValue)
+                .average()
+                .orElse(0.0);
+    }
+
+    public Integer summeStreamDrei(List<Integer> intArrList){
+        return intArrList.stream().mapToInt(Integer::intValue).max().orElse(0);
+    }
+
+    public Integer summeStreamVier(List<Integer> intArrList){
+        return intArrList.stream().mapToInt(Integer::intValue).min().orElse(0);
+    }
+
+    public Integer streamFilterOdd(List<Integer> intArrList){
+        return intArrList.stream().mapToInt(Integer::intValue).min().orElse(0);
     }
 }
